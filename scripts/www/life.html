@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洞府与社交</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="menu-toggle" title="打开目录">☰</div>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">云隐修仙录<span> · WIKI</span></div>
+  <hr class="brandline">
+  <div class="group">指南</div>
+  <a class="nav" href="index.html"><span class="no">壹</span>首页概览</a>
+  <a class="nav" href="realms.html"><span class="no">贰</span>境界修炼</a>
+  <a class="nav" href="gongfa.html"><span class="no">叁</span>功法流派</a>
+  <div class="group">成长</div>
+  <a class="nav" href="equipment.html"><span class="no">肆</span>装备锻造</a>
+  <a class="nav" href="items.html"><span class="no">伍</span>丹药经济</a>
+  <a class="nav" href="adventure.html"><span class="no">陆</span>历练战斗</a>
+  <div class="group">经营与终局</div>
+  <a class="nav" href="life.html"><span class="no">柒</span>洞府社交</a>
+  <a class="nav" href="endgame.html"><span class="no">捌</span>轮回终局</a>
+  <div class="group">资料</div>
+  <a class="nav" href="reference.html"><span class="no">玖</span>公式速查</a>
+  <a class="nav" href="tools.html"><span class="no">拾</span>存档工具</a>
+  <div class="sidefoot">
+    数据取自游戏 v1.33.0（2026-09）<br>
+    版权归作者 <a href="https://github.com/setube/yunyin-xiuxian">谦君</a> · CC BY-NC 4.0<br>
+    <a href="https://yunyin.wenzi.games">在线试玩 →</a>
+  </div>
+</aside>
+<main class="content"><div class="doc">
+<header class="pagehead"><h1>洞府与社交</h1><p>7 建筑 · 4 灵脉 · 8 灵兽 · 道侣羁绊 · 师承 · 成就任务</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#dongfu">洞府建筑</a><a href="#veins">灵脉</a><a href="#pets">灵兽</a><a href="#daolu">道侣</a><a href="#bond">羁绊事件</a><a href="#mentor">师承</a><a href="#meta">称号·成就·任务</a>
+</div>
+
+<h2 id="dongfu"><span class="no">壹</span>七座建筑</h2>
+<p class="m" style="font-size:12.5px">升级消耗：灵石 = costBase × 1.5^当前级；玄铁 = costOre × (当前级+1)。非洞府建筑等级上限 = (洞府等级+1)×5。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>建筑</th><th>上限</th><th>解锁</th><th>基础消耗</th><th>每级效果</th></tr></thead>
+<tbody>
+<tr><td>洞府</td><td class="num">4</td><td>炼气</td><td class="num">200 石 / 20 铁</td><td>离线上限 8/12/24/48/72 时；其余建筑上限 +5 级/级；修速 +4%</td></tr>
+<tr><td>聚灵阵</td><td class="num">20</td><td>炼气</td><td class="num">60 / 6</td><td>灵气恢复 +10%、灵气上限 +8%、修速 +3%</td></tr>
+<tr><td>炼丹炉</td><td class="num">10</td><td>炼气</td><td class="num">100 / 10</td><td>炼丹产出 +5%（「炉子只管出丹多寡，成与不成看你懂多少」）</td></tr>
+<tr><td>炼器台</td><td class="num">10</td><td>筑基</td><td class="num">150 / 15</td><td>强化上限 +0.5/级；炼器消耗 −4%</td></tr>
+<tr><td>灵田</td><td class="num">15</td><td>炼气</td><td class="num">80 / 8</td><td>每时产灵草 6×级 株、玄铁 2.4×级 块</td></tr>
+<tr><td>藏经阁</td><td class="num">12</td><td>筑基</td><td class="num">120 / 12</td><td>每时产悟道点 1.5×级；辅修栏 +1/3 级；被动钻研丹方；经验 +3%</td></tr>
+<tr><td>灵兽园</td><td class="num">8</td><td>金丹</td><td class="num">300 / 30</td><td>灵兽属性效果 +10%/级</td></tr>
+</tbody></table></div>
+
+<h2 id="veins"><span class="no">贰</span>灵脉投资（金丹解锁）</h2>
+<p>总容量 <b>100 点</b>：主脉独占 ≤70，副脉各 ≤30——<b>不能全点满，方向即取舍</b>。投点成本 <code>stoneByTier(玩家层级, 25)</code>；主脉迁移费 ×20，未定主脉时首次投点自动立为主脉。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>灵脉</th><th>印</th><th>每点效果</th></tr></thead>
+<tbody>
+<tr><td>青木灵脉</td><td>聚</td><td>修炼速度 +0.4%</td></tr>
+<tr><td>赤炎灵脉</td><td>炼</td><td>炼器耗材 −0.3%</td></tr>
+<tr><td>玉髓灵脉</td><td>丹</td><td>炼丹双成率 +0.5%</td></tr>
+<tr><td>寒冥灵脉</td><td>悟</td><td>功法进修悟道点 −0.4%（上限 50%）</td></tr>
+</tbody></table></div>
+
+<div class="tip">灵脉点数有限：主玩战斗先点攻击/生命，主玩挂机先点修速与产出；点错等下一世再改，不必纠结。道侣关系只影响剧情与事件，不涨战力——按「顺眼」选就行，纯当这世的叙事。</div>
+<h2 id="pets"><span class="no">叁</span>灵兽（8 只）</h2>
+<p>灵兽经奇遇事件赠送，出战 1 只，属性效果 ×(1 + 灵兽园等级×10%)；重复获得折灵草+10。性格影响历练倾向：</p>
+<div class="tblwrap"><table>
+<thead><tr><th>性格</th><th>探索时长</th><th>危险率</th><th>掉落品质</th><th>战败率</th></tr></thead>
+<tbody>
+<tr><td>贪宝</td><td class="num">×1.0</td><td class="num">+5%</td><td class="num">+6%</td><td>—</td></tr>
+<tr><td>慢稳</td><td class="num">×1.1</td><td class="num">−2%</td><td>—</td><td class="num">−2%</td></tr>
+<tr><td>好战</td><td class="num">×1.0</td><td class="num">+15%</td><td class="num">+2%</td><td>—</td></tr>
+<tr><td>谨慎</td><td class="num">×0.95</td><td class="num">−5%</td><td class="num">−2%</td><td class="num">−4%</td></tr>
+</tbody></table></div>
+<div class="tblwrap"><table>
+<thead><tr><th>灵兽</th><th>品阶</th><th>词条</th><th>性格</th></tr></thead>
+<tbody>
+<tr><td>青羽灵狐</td><td>精品</td><td>探索速度+10%、奇遇+5%</td><td>贪宝</td></tr>
+<tr><td>雪背小龟</td><td>精品</td><td>防御+8%、生命+5%</td><td>慢稳</td></tr>
+<tr><td>赤火雀</td><td>精品</td><td>攻击+8%、身法+4%</td><td>好战</td></tr>
+<tr><td>月影狸</td><td>灵品</td><td>闪避+4%、掉落+8%</td><td>谨慎</td></tr>
+<tr><td>三足金蟾</td><td>灵品</td><td>灵石+15%、气运+5%</td><td>贪宝</td></tr>
+<tr><td>摇光鹿</td><td>玄品</td><td>修速+8%、灵气回复+10%</td><td>慢稳</td></tr>
+<tr><td>御雷猴</td><td>玄品</td><td>抗劫+10%、攻击+6%</td><td>好战</td></tr>
+<tr><td>螭龙幼子</td><td>天品</td><td>攻击+10%、生命+10%、修速+6%</td><td>好战</td></tr>
+</tbody></table></div>
+
+<h2 id="daolu"><span class="no">肆</span>道侣（十位）</h2>
+<div class="note good"><b>设计红线：</b>「道侣不是让你变强的人，而是让这一世变得不一样的人。」关系值只转化为事件概率与选项资格——<b>不加属性、不兑换资源、不产道果宿慧、不影响修炼速度</b>（设计红线）；转世清空关系，只把结局写进履历。</div>
+<div class="tblwrap"><table>
+<thead><tr><th>道侣</th><th>性格</th><th>道途倾向</th><th>灵根</th><th>初见境界</th><th>她要做的事</th><th>底线</th></tr></thead>
+<tbody>
+<tr><td>沈青璃</td><td>谨慎</td><td>丹鼎</td><td>木</td><td>筑基</td><td>寻找十年前失踪的师尊</td><td>不喜杀伐，见人滥杀则远之</td></tr>
+<tr><td>赵砚</td><td>激进</td><td>剑心</td><td>金</td><td>金丹</td><td>把那柄铁剑养到出鞘</td><td>不肯用丹药抄近路</td></tr>
+<tr><td>慕烟</td><td>好奇</td><td>问心</td><td>木</td><td>筑基</td><td>走遍此世每一处地界，把它记下来</td><td>不愿为赶路而毁掉见到的东西</td></tr>
+<tr><td>韩峥</td><td>激进</td><td>杀伐</td><td>暗</td><td>元婴</td><td>找到当年灭他满门的那个人</td><td>受人恩惠必偿，欠债则寝食难安</td></tr>
+<tr><td>云舒</td><td>惜物</td><td>长生</td><td>水</td><td>金丹</td><td>活得够久，久到看见一件事的结局</td><td>厌恶把命押在一次豪赌上</td></tr>
+<tr><td>厉孤</td><td>惜物</td><td>器道</td><td>火</td><td>金丹</td><td>复原一件残缺的古器</td><td>不许他人碰他未成的器胚</td></tr>
+<tr><td>白薇</td><td>谨慎</td><td>丹鼎</td><td>水</td><td>筑基</td><td>把一门失传的疗伤方子补全</td><td>见死不救是她的底线</td></tr>
+<tr><td>钟离越</td><td>谨慎</td><td>问心</td><td>土</td><td>元婴</td><td>查清当年宗门覆灭的真相</td><td>不与背信者同行</td></tr>
+<tr><td>雪无痕</td><td>激进</td><td>剑心</td><td>冰</td><td>元婴</td><td>在有生之年递出一剑无悔的剑</td><td>不受嗟来之食</td></tr>
+<tr><td>苍冥</td><td>好奇</td><td>长生</td><td>混沌</td><td>化神</td><td>弄清自己为何会在这里醒来</td><td>不谈来处，问急了便走</td></tr>
+</tbody></table></div>
+<h3>关系与阶段</h3>
+<p>三维关系：缘分 / 信任 / 契合（各 0~100）。阶段门槛：素昧平生 → 萍水相逢 → 相识（缘20）→ 同行（缘35/信20/共历1）→ 知交（缘50/信45/共历2）→ 结契（缘65/信60/<b>契55</b>/共历3）→ 道侣（缘80/信75/契65/共历4）。契合仅在「结契」起成为硬条件。结局四种：相伴终老 / 分道扬镳 / 中道陨落 / 缘悭一面。上一世走到结契以上者，下一世有 8%（上限 35%）概率宿缘重逢。</p>
+
+<h2 id="bond"><span class="no">伍</span>羁绊事件</h2>
+<h3>共同事件（6 个）</h3>
+<p>只在特定时刻触发（踏入新地界 / 首胜 / 击破首领 / 濒死之际），每种代表一种冲突：<b>遗府</b>（资源——丹方与法宝只够取一样）、<b>刀下</b>（道途——救还是杀）、<b>线索</b>（风险——陪她冒险还是拦住她）、<b>代价</b>（价值观——取药引会令村子薄收三年）、<b>岔路</b>（人生目标——她要离开这条路线）、<b>重伤</b>（共同承担——救你要折损她自己突破用的丹）。选项按道途倾向与你的<b>行为推断道途</b>（杀伐=击杀计数、长生=突破计数、剑心=战斗、丹鼎=炼丹服药、器道=获装分解、问心=学功法奇遇）结算缘分/信任/契合；她也可能当场离开。共同事件<b>不产出任何属性或资源</b>。</p>
+<h3>她的意图</h3>
+<p>由经历催生（又一次同行 +0.12、你站在她那边 +0.22、你越过了她的线 −0.3、与她未了之事相关的东西出现 +0.35），受性格阻尼（谨慎 1.35 / 惜物 1.15 / 好奇 0.85 / 激进 0.75）。酝酿满则她自行开口；三种回应：应下（缘+10/信+16/契+6，了结）、回绝（信−8，未了）、不作声（信−4）——<b>忽略不等于回绝</b>，第三次她自己去了（信−14，了结）。</p>
+
+<h2 id="mentor"><span class="no">陆</span>师承</h2>
+<p>「不是职业，给一条方向性理念：一条轻词条 + 一句叙事，不封任何构筑。」人物页一键拜师，无前置消耗；一世一位、不可更改、<b>转世保留</b>。师尊按你的真实行为给出纯叙事评价，契合高低皆无惩罚。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>师承</th><th>师尊</th><th>名号</th><th>词条</th><th>看重的行为</th></tr></thead>
+<tbody>
+<tr><td>剑修</td><td>青松剑叟</td><td>一剑破万法</td><td>暴击+3%、伤害+2%</td><td>击杀、首领击杀、突破</td></tr>
+<tr><td>丹修</td><td>百草婆婆</td><td>草木通神</td><td>每轮回复+1%、炼丹产出+5%</td><td>炼丹、服药</td></tr>
+<tr><td>阵修</td><td>玄机子</td><td>定鼎乾坤</td><td>开局盾+3%、减伤+2%</td><td>建筑升级、离线领取</td></tr>
+<tr><td>猎修</td><td>哮天翁</td><td>踏遍山河</td><td>探索速度+4%、掉落+3%</td><td>历练、获装、奇遇</td></tr>
+</tbody></table></div>
+
+<h2 id="meta"><span class="no">柒</span>称号 · 成就 · 任务</h2>
+<h3>称号（12 枚，成就解锁，佩戴 1 枚）</h3>
+<p>初入仙途（修速+2%）、炼气修士（+3%）、筑基真人（修速+4% 生命+3%）、金丹老祖（修速+5% 攻+4%）、元婴大能（修速+6% 突破+1%）、百兽辟易（攻+6%）、一剑破万法（攻+8% 暴击+2%）、天命之人（气运+5% 掉落+4%）、百炼成钢（防+6%）、丹道圣手（炼丹产出+10%）、轮回行者（修速+5% 经验+5%）、万古长生（寿元+10%）。</p>
+<h3>成就（50 个，未达成一律显示「???」）</h3>
+<p>境界 10（初窥仙途～得证仙位）、突破 5（含「道阻且长」失败 5 次、「劫后余生」渡劫 3 次）、战斗 6（击杀 50~5000、首领 10/20）、装备 10（获得 10~500 件、品质 4/6/7/8 档、强化、分解）、历练 4、丹药 4、功法 2、洞府 2、转世 2、离线 2、特殊 3（寿元将尽 / 寿元逾万载 / 灵石超百万）。奖励含灵石、悟道点、灵草、矿石、残页、器灵尘与称号。</p>
+<h3>任务</h3>
+<ul>
+  <li><b>主线 15 个</b>（按序自动完成发奖）：踏上仙途（炼气三层）→ 初出茅庐 → 斩妖除魔 → 披挂上阵 → 炼气圆满 → 筑基问道 → 博览道藏（习得 3 部功法）→ 经营洞府 → 丹道初窥 → 扫荡群妖 → 金丹大道 → 千锤百炼 → 元婴之路 → 威震诸域 → 问鼎化神；</li>
+  <li><b>每日 3 个</b>：每日斩妖（击杀 15）、每日服药（1 枚）、每日历练（1 次）。</li>
+</ul>
+<footer>
+  <p class="pn"><a href="adventure.html">← 历练与战斗</a><a href="endgame.html">轮回与终局 →</a></p>
+  <p>《云隐修仙录》Wiki —— 数据提取自 <a href="https://github.com/setube/yunyin-xiuxian">github.com/setube/yunyin-xiuxian</a> v1.33.0 源码（2026-09），仅供学习参考；游戏及素材版权归作者 <b>谦君</b> 所有，采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans">CC BY-NC 4.0</a> 许可（未经书面授权禁止商用）。在线试玩：<a href="https://yunyin.wenzi.games">yunyin.wenzi.games</a>。</p>
+</footer>
+</div></main>
+</div>
+<div class="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
