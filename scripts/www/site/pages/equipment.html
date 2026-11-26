@@ -1,0 +1,159 @@
+<header class="pagehead"><h1>装备与锻造</h1><p>10 槽位 · 50 模板 · 110 词条 · 9 品质 · 法宝与套装</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#slot">槽位与品质</a><a href="#gen">生成规则</a><a href="#tpl">模板池</a><a href="#set">套装</a><a href="#affix">词条池</a><a href="#artifact">法宝</a><a href="#forge">强化·分解·重铸</a>
+</div>
+
+<h2 id="slot"><span class="no">壹</span>槽位与品质</h2>
+<p>10 个槽位：武器、头冠、衣袍、护腕、腰带、鞋履、项链、戒指、灵符（+法宝独立体系）。品质 9 档：</p>
+<div class="tblwrap"><table>
+<thead><tr><th>rank</th><th>品质</th><th>倍率</th><th>随机词条数</th><th>掉落权重</th><th>色</th></tr></thead>
+<tbody>
+<tr><td>0</td><td><span class="chip" style="border-color:#857F70;color:#857F70">凡品</span></td><td class="num">1.0</td><td class="num">0~1</td><td class="num">5000</td><td class="num">#857F70</td></tr>
+<tr><td>1</td><td><span class="chip" style="border-color:#6E8B74;color:#6E8B74">良品</span></td><td class="num">1.25</td><td class="num">1~2</td><td class="num">3000</td><td class="num">#6E8B74</td></tr>
+<tr><td>2</td><td><span class="chip" style="border-color:#4F7699;color:#4F7699">精品</span></td><td class="num">1.6</td><td class="num">2</td><td class="num">1500</td><td class="num">#4F7699</td></tr>
+<tr><td>3</td><td><span class="chip" style="border-color:#7B5EA7;color:#7B5EA7">灵品</span></td><td class="num">2.1</td><td class="num">2~3</td><td class="num">400</td><td class="num">#7B5EA7</td></tr>
+<tr><td>4</td><td><span class="chip" style="border-color:#A85C3F;color:#A85C3F">玄品</span></td><td class="num">2.8</td><td class="num">3~4</td><td class="num">80</td><td class="num">#A85C3F</td></tr>
+<tr><td>5</td><td><span class="chip" style="border-color:#B07D2B;color:#B07D2B">地品</span></td><td class="num">3.7</td><td class="num">4</td><td class="num">15</td><td class="num">#B07D2B</td></tr>
+<tr><td>6</td><td><span class="chip" style="border-color:#C9A227;color:#C9A227">天品</span></td><td class="num">5.0</td><td class="num">4~5</td><td class="num">4</td><td class="num">#C9A227</td></tr>
+<tr><td>7</td><td><span class="chip" style="border-color:#3E8E8B;color:#3E8E8B">仙品</span></td><td class="num">6.8</td><td class="num">5~6</td><td class="num">1</td><td class="num">#3E8E8B</td></tr>
+<tr><td>8</td><td><span class="chip" style="border-color:#A83F39;color:#A83F39">神品</span></td><td class="num">9.5</td><td class="num">6</td><td class="num">0.2</td><td class="num">#A83F39</td></tr>
+</tbody></table></div>
+<div class="note"><b>品质压缩：</b>品质倍率对「平铺数值」按 <span class="m">mult^0.6</span> 压缩（神品 9.5 → 约 3.77）——品质的价值主要体现在<b>词条数量</b>上，而非裸数值；词条才是流派的本体。</div>
+
+<h2 id="gen"><span class="no">贰</span>装备生成规则</h2>
+<ul>
+  <li>掉落层级 tier 1~20 映射大境界（炼气→渡劫），战力曲线 <code>3.4^大境 × 1.09^小层</code>，敌人与掉落同步水涨船高；</li>
+  <li>平铺数值 = 基础权重 × 战力曲线 × 0.6 × 品质^0.6 × (1 + 强化等级 × 0.12)；</li>
+  <li>品质随机受层级加成（tier 每 +1，高品质权重 ×1.18）与<b>气运</b>加成（灵品及以上词条享受 1.5 倍气运系数）；</li>
+  <li>首领保底掉 1 件且至少良品。</li>
+</ul>
+
+<h2 id="tpl"><span class="no">叁</span>装备模板池（50 件）</h2>
+<h3>武器（8）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>名称</th><th>层级</th><th>基础</th><th>固定词条</th><th>套装</th></tr></thead>
+<tbody>
+<tr><td>青竹剑</td><td class="num">1</td><td>攻 10</td><td>—</td><td>—</td></tr>
+<tr><td>玄铁重剑</td><td class="num">2</td><td>攻 12</td><td>—</td><td>铁壁</td></tr>
+<tr><td>寒锋剑</td><td class="num">4</td><td>攻 13 生 8</td><td>—</td><td>—</td></tr>
+<tr><td>赤焰刀</td><td class="num">6</td><td>攻 14</td><td>伤害+4%</td><td>—</td></tr>
+<tr><td>紫电长枪</td><td class="num">9</td><td>攻 15</td><td>身法+5%</td><td>—</td></tr>
+<tr><td>诛仙剑胚</td><td class="num">12</td><td>攻 17</td><td>暴击+4%</td><td>—</td></tr>
+<tr><td>弑神戟</td><td class="num">15</td><td>攻 18 生 15</td><td>穿甲+6%</td><td>—</td></tr>
+<tr><td>鸿蒙剑</td><td class="num">18</td><td>攻 20</td><td>伤害+10%</td><td>—</td></tr>
+</tbody></table></div>
+<h3>防具与饰品（35）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>槽位</th><th>模板（层级 · 基础 · 固定词条 · 套装）</th></tr></thead>
+<tbody>
+<tr><td>头冠（5）</td><td>桃木簪(1·防4生15)｜玄铁冠(4·防5生20·铁壁)｜星辰冠(8·防6生24·灵气回复+6%·星斗)｜紫金冠(12·防7生28·修速+4%)｜九霄冠(16·防8生32·突破率+2%)</td></tr>
+<tr><td>衣袍（6）</td><td>麻布道袍(1·防7生30)｜青云道袍(3·防8生36)｜玄武甲(6·防10生42·减伤+4%·铁壁)｜流云仙衣(10·防11生48·闪避+3%)｜星罗法衣(14·防12生55·灵气回复+8%·星斗)｜混沌天衣(18·防14生62·减伤+8%)</td></tr>
+<tr><td>护腕（4）</td><td>藤纹护腕(1·攻3防3)｜铁臂缚(5·攻4防4)｜龙鳞腕甲(10·攻5防5·反击+5%)｜仙金护臂(15·攻6防6·攻击+5%)</td></tr>
+<tr><td>腰带（4）</td><td>粗布腰带(1·防3生25)｜兽皮腰带(5·防4生32)｜蟒纹玉带(10·防5生40·生命+5%)｜乾坤绦(15·防6生46·开局盾+6%)</td></tr>
+<tr><td>鞋履（5）</td><td>芒鞋(1·防3生12)｜快靴(4·防4生15·身法+3%)｜踏云靴(8·防5生18·探索速度+6%)｜追星履(12·防6生22·身法+6%)｜虚空步靴(16·防7生26·闪避+5%)</td></tr>
+<tr><td>项链（5）</td><td>木珠串(1·生20)｜灵玉坠(4·生26·灵气回复+5%)｜星髓链(8·生32·修速+5%)｜龙魂坠(12·生38攻3·攻击+4%)｜混元珠链(16·生45·减伤+5%)</td></tr>
+<tr><td>戒指（6）</td><td>铜戒(1·攻3)｜玄光戒(4·攻4·气运+2%)｜聚灵戒(7·攻4生15·修速+4%)｜紫霞戒(10·攻5·暴击+3%)｜千机戒(14·攻6防3·掉落+6%)｜道祖戒(18·攻7生20·突破率+3%)</td></tr>
+<tr><td>灵符（7）</td><td>平安符(1·生15)｜聚气符(3·生18·灵气回复+8%)｜护身符(6·生22防3·开局盾+5%)｜五雷符(9·生25攻3·伤害+5%)｜金光符(12·生30·减伤+5%)｜太乙符(15·生35·每轮回复1.5%)｜大道符(18·生40·修速+8%)</td></tr>
+</tbody></table></div>
+
+<h2 id="set"><span class="no">肆</span>套装共鸣（机制效果，非数值堆叠）</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>套装</th><th>件数</th><th>效果</th><th>成员</th></tr></thead>
+<tbody>
+<tr><td>铁壁共鸣</td><td class="num">2</td><td>受到致命伤害时，首次保留 1 点气血</td><td>玄铁重剑、玄铁冠、玄武甲</td></tr>
+<tr><td>星斗共鸣</td><td class="num">2</td><td>每场战斗开始获得一层星光护体（护盾+5%）</td><td>星辰冠、星罗法衣</td></tr>
+</tbody></table></div>
+
+<div class="tip">同词条多件会递减（100/75/50/25%），所以「四件攻击词条」不如「攻+暴+速+吸」散搭；高品质但词条歪的装备，先看构筑页的五维契合度再决定穿不穿——低品质高词条的「小极品」过渡期往往比高品白板强。分解不心疼：淘汰件化尘拿来强化主力，别为过渡装省尘。</div>
+<h2 id="affix"><span class="no">伍</span>词条池（110 条）</h2>
+<p class="m" style="font-size:12.5px">「可出槽位」中：防具=头冠/衣袍/护腕/腰带/鞋履；饰品=项链/戒指/灵符。稀有度：≥90 普通 / ≥50 稀有 / ≥20 史诗 / &lt;20 传说。品质门槛：精品可出 1~2 条、灵品 2 条、玄品 3 条、地品 4 条、天品 5 条、仙品 6 条。数值区间为该词条的最小~最大值（%）。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>属性类别</th><th>词条（区间 · 权重 · 槽位 · 门槛）</th></tr></thead>
+<tbody>
+<tr><td>攻击%</td><td>锋锐 2~5·100·全部｜破军 5~10·60·全部·r2｜灭世 10~18·25·全部·r5｜开天 18~30·8·全部·r7</td></tr>
+<tr><td>防御%</td><td>坚壁 3~6·100｜磐石 6~12·60·r2｜不朽 12~20·25·r5｜亘古 20~32·8·r7（均全部槽位）</td></tr>
+<tr><td>生命%</td><td>蕴生 3~6·100｜厚土 6~12·60·r2｜长生 12~22·25·r5｜不灭 22~35·8·r7（均全部槽位）</td></tr>
+<tr><td>暴击率</td><td>会心 1~3·90·WJ｜锐目 3~6·50·WJ·r2｜天瞳 6~10·20·WJ·r5</td></tr>
+<tr><td>暴击伤害</td><td>重击 8~15·90·WJ｜碎玉 15~30·50·WJ·r2｜裂空 30~50·20·WJ·r5｜诛天 50~80·6·仅W·r7（整数）</td></tr>
+<tr><td>伤害增幅</td><td>破妄 3~6·90·WJ｜诛邪 6~12·45·WJ·r3｜屠灭 12~20·15·仅W·r6</td></tr>
+<tr><td>伤害减免</td><td>云甲 2~5·90·A｜霞衣 5~9·45·A·r3｜不坏 9~15·15·A·r6</td></tr>
+<tr><td>修炼速度</td><td>静心 3~6·100｜悟道 6~12·55·r2｜天启 12~20·20·r5｜证道 20~32·6·r7（均全部槽位）</td></tr>
+<tr><td>灵气回复</td><td>聚灵 4~8·90·AJ｜引灵 8~16·50·AJ·r2｜吞灵 16~28·18·AJ·r5</td></tr>
+<tr><td>突破成功率</td><td>通明 1~2·70·J｜道基 2~4·35·J·r3｜天命 4~6·12·J·r6</td></tr>
+<tr><td>气运</td><td>福缘 2~5·80·J｜鸿运 5~10·40·J·r3｜天眷 10~15·12·J·r6</td></tr>
+<tr><td>历练速度</td><td>疾行 4~8·80·靴+J｜御风 8~15·40·r3｜缩地 15~25·12·r6</td></tr>
+<tr><td>身法（出手速度）</td><td>迅捷 3~6·80·靴/腕/W｜流光 6~12·40·r3｜瞬影 12~20·12·靴/W·r6</td></tr>
+<tr><td>战斗修为</td><td>参悟 4~8·80｜明心 8~16·40·r3｜大彻 16~28·12·r6（均全部槽位）</td></tr>
+<tr><td>灵石获取</td><td>聚财 5~10·80·J｜点金 10~20·40·J·r3｜化宝 20~35·12·J·r6</td></tr>
+<tr><td>掉落率</td><td>寻宝 4~8·80·J｜探骊 8~15·40·J·r3｜摘星 15~25·12·J·r6</td></tr>
+<tr><td>穿甲</td><td>破甲 4~8·70·W｜碎甲 8~15·35·W·r3｜洞虚 15~25·10·W·r6</td></tr>
+<tr><td>先手伤害</td><td>先发 10~20·70·W｜雷霆 20~40·30·W·r4（整数）</td></tr>
+<tr><td>反击率</td><td>反击 5~10·70·A｜荆棘 10~20·30·A·r4</td></tr>
+<tr><td>吸血</td><td>噬血 2~5·70·W｜血魔 5~10·30·W·r4｜化生 10~16·10·W·r7</td></tr>
+<tr><td>开局护盾</td><td>护体 5~10·70·A｜罡罩 10~20·30·A·r4｜琉璃 20~32·10·A·r7</td></tr>
+<tr><td>处决伤害</td><td>斩灭 10~20·70·W｜断魂 20~40·30·W·r4（整数，对血&lt;30%之敌）</td></tr>
+<tr><td>回合回复</td><td>回春 1~2·70·A｜造化 2~4·30·A·r4｜不息 4~6·10·A·r7</td></tr>
+<tr><td>闪避</td><td>轻身 2~5·70·靴+A｜虚步 5~9·30·仅靴·r4｜化影 9~14·10·仅靴·r7</td></tr>
+<tr><td>濒危减伤</td><td>背水 10~20·70·A｜涅槃 20~35·30·A·r4（整数）</td></tr>
+<tr><td>突破返还</td><td>稳固 5~10·60·J｜道心 10~20·25·J·r4</td></tr>
+<tr><td>双倍掉落</td><td>丰饶 5~10·60·J｜满载 10~20·25·J·r4</td></tr>
+<tr><td>奇遇运气</td><td>奇遇 5~10·60·J｜仙缘 10~20·25·J·r4</td></tr>
+<tr><td>御雷（天劫抗性）</td><td>御雷 5~10·60·A｜渡厄 10~20·25·A·r4｜劫外 20~30·8·A·r7</td></tr>
+<tr><td>连击率</td><td>连击 5~10·70·W｜疾风 10~18·30·W·r4</td></tr>
+<tr><td>击晕</td><td>震慑 3~6·70·W｜镇岳 6~12·30·W·r4</td></tr>
+<tr><td>寿元</td><td>养寿 2~5·50·J｜龟息 5~10·20·J·r4｜长存 10~18·6·J·r7</td></tr>
+<tr><td>炼丹产出</td><td>丹心 5~10·40·J｜丹圣 10~20·15·J·r4</td></tr>
+<tr><td>炼器折扣</td><td>巧手 5~10·40·J｜器道 10~20·15·J·r4</td></tr>
+<tr><td>流派·背水</td><td>背水一击 15~25·55·W｜向死而生 25~40·22·W·r4｜绝境道心 40~60·7·全部·r7（整数）</td></tr>
+<tr><td>流派·锋芒</td><td>锋芒 10~18·55·W｜一鼓作气 18~30·22·W·r4（整数）</td></tr>
+<tr><td>流派·罡盾</td><td>罡盾 8~15·55·A｜盾魂 15~25·22·A·r4（整数）</td></tr>
+<tr><td>流派·连环</td><td>连环 15~30·55·W｜风雷九连 30~50·22·W·r4（整数）</td></tr>
+<tr><td>流派·锋反</td><td>锋反 20~35·55·A｜万刃归返 35~60·22·A·r4（整数）</td></tr>
+<tr><td>流派·溢疗成盾</td><td>余泽 30~50·55·AJ｜生生不息 50~80·22·AJ·r4｜造化盾心 80~120·7·全部·r7（整数）</td></tr>
+</tbody></table></div>
+<div class="note warn"><b>递减与软上限：</b>同一条件/触发词条（背水、先手、暴击、闪避、吸血、反击等 19 键）多来源叠加按 <b>100% / 75% / 50% / 25%</b> 计入；暴击率软上限 75%、闪避 55%、减伤 55%、开局护盾 80%，超出部分按 40~50% 折算——逼你搭配而非单堆。</div>
+
+<h2 id="artifact"><span class="no">陆</span>法宝（20 件）</h2>
+<p>独立于装备体系：战斗掉落 1.5%（首领 ×6，受气运加成），重复获得折算<b>悟道点 ×10</b>。每件有被动词条＋主动神通（每 3/4 回合触发）；可升阶至 9 级，每级数值 +8%。佩戴 1 件，<b>元婴起 2 件</b>。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>法宝</th><th>品阶/层级</th><th>被动</th><th>主动神通</th></tr></thead>
+<tbody>
+<tr><td>墨玉葫芦</td><td>良品 t1</td><td>生命+5%</td><td>琼浆：每4回合回12%生命</td></tr>
+<tr><td>离火珠</td><td>良品 t2</td><td>攻击+5%</td><td>焚天：220%攻击伤害</td></tr>
+<tr><td>玄天镜</td><td>精品 t3</td><td>防御+6%</td><td>镜光护体：18%护盾</td></tr>
+<tr><td>缚妖索</td><td>精品 t4</td><td>身法+5%</td><td>缚妖：敌攻−20%</td></tr>
+<tr><td>雷音锤</td><td>精品 t5</td><td>暴击+3%</td><td>雷击：260%伤害</td></tr>
+<tr><td>玉净瓶</td><td>灵品 t6</td><td>生命+8%、灵气回复+6%、溢疗转盾30%</td><td>甘露：回20%</td></tr>
+<tr><td>八卦炉</td><td>灵品 t7</td><td>攻击+8%、炼丹产出+10%</td><td>炉火纯青：300%伤害</td></tr>
+<tr><td>定海珠</td><td>灵品 t8</td><td>防御+8%、减伤+4%</td><td>定海：22%护盾</td></tr>
+<tr><td>幽冥幡</td><td>灵品 t9</td><td>伤害+6%、背水+10%</td><td>摄魂：敌攻−25%</td></tr>
+<tr><td>千机伞</td><td>玄品 t10</td><td>闪避+5%、防御+6%、盾伤+8%</td><td>伞阵：26%护盾</td></tr>
+<tr><td>镇岳印</td><td>玄品 t11</td><td>攻击+10%</td><td>镇岳：340%伤害</td></tr>
+<tr><td>摄魂铃</td><td>玄品 t12</td><td>暴伤+15%</td><td>摄魂音：敌攻−30%</td></tr>
+<tr><td>周天星盘</td><td>玄品 t13</td><td>气运+6%、修速+6%</td><td>星辉：回24%</td></tr>
+<tr><td>赤霄鼎</td><td>地品 t14</td><td>攻击+12%、生命+8%</td><td>鼎炼：380%伤害</td></tr>
+<tr><td>碧水珠</td><td>地品 t15</td><td>生命+12%、灵气回复+10%</td><td>碧波：回28%</td></tr>
+<tr><td>噬灵幡</td><td>地品 t16</td><td>伤害+10%、吸血+4%</td><td>噬灵：400%伤害</td></tr>
+<tr><td>太虚镜</td><td>天品 t17</td><td>防御+14%、减伤+6%</td><td>太虚照影：32%护盾</td></tr>
+<tr><td>斩仙飞刀</td><td>天品 t18</td><td>暴击+6%、暴伤+25%</td><td>斩仙：460%伤害</td></tr>
+<tr><td>混沌钟</td><td>仙品 t19</td><td>攻/防/生各+12%</td><td>混沌钟鸣：500%伤害</td></tr>
+<tr><td>造化玉碟</td><td>神品 t20</td><td>修速+20%、突破+4%、气运+8%</td><td>造化：回40%</td></tr>
+</tbody></table></div>
+
+<h2 id="forge"><span class="no">柒</span>强化 · 分解 · 重铸</h2>
+<h3>强化（升星）</h3>
+<ul>
+  <li>上限 = <b>10 + floor(炼器台等级/2)</b>；每级基础属性 +12%；<b>100% 成功</b>，无失败率；</li>
+  <li>成本：器灵尘 <code>ceil(4 × 1.5^当前等级 × (1+品质rank×0.3) × (1−炼器折扣))</code>；灵石按层级换算 <code>stoneByTier(tier, 15) × (1+等级×0.5) × (1−折扣)</code>。</li>
+</ul>
+<h3>分解（无出售机制）</h3>
+<p>本作<b>没有卖东西换灵石</b>的商店——多余装备一律化尘：器灵尘 = 基础表 <code>[1,2,4,8,16,32,64,128,256]</code>（凡→神）+ floor(强化等级/2)。已锁定、已佩戴的装备不可分解；可按品质勾选一键分解。行囊满（容量 120）时新装备自动折尘，或被「智能收纳」用新件挤掉「与道无缘」的最低品质件。</p>
+<div class="note"><b>智能保留（smartKeep）</b>三个开关：达到指定品质一律保留；保留含主流派核心词条的装备；保留可促成组合技的副体系件。无主流派时「道途未成，唯品质论」。</div>
+<h3>重铸与封存</h3>
+<ul>
+  <li><b>重铸</b>：保留品质/层级/强化等级，随机替换<b>一个未封存词条</b>（不与现有词条重复，数值重掷）；上限 <b>10 次</b>。</li>
+  <li><b>成本</b>：灵石 = <code>stoneByTier(tier, 40 × 品质倍率 × 1.5^已重铸次数 × 封存稀有度系数)</code>；器灵尘 = 30 + 次数×15。封存稀有度系数：普通 1.0 / 稀有 1.5 / 史诗 2.0 / 传说 3.0（第 10 次灵石约为首次 38 倍）。</li>
+  <li><b>封存</b>：付费永久锁定一个词条，重铸永不替换；至少留一个随机位。第 n 次封存灵石 = <code>stoneByTier(tier, 200×n)</code>。</li>
+</ul>
+<h3>法宝升阶</h3>
+<p>消耗悟道点 <code>ceil(6 × 1.6^当前等级 × (1+品质rank×0.3))</code> 与灵石，上限 9 级，每级被动/主动数值 +8%。</p>
