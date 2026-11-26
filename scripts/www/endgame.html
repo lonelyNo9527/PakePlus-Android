@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>轮回与终局</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="menu-toggle" title="打开目录">☰</div>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">云隐修仙录<span> · WIKI</span></div>
+  <hr class="brandline">
+  <div class="group">指南</div>
+  <a class="nav" href="index.html"><span class="no">壹</span>首页概览</a>
+  <a class="nav" href="realms.html"><span class="no">贰</span>境界修炼</a>
+  <a class="nav" href="gongfa.html"><span class="no">叁</span>功法流派</a>
+  <div class="group">成长</div>
+  <a class="nav" href="equipment.html"><span class="no">肆</span>装备锻造</a>
+  <a class="nav" href="items.html"><span class="no">伍</span>丹药经济</a>
+  <a class="nav" href="adventure.html"><span class="no">陆</span>历练战斗</a>
+  <div class="group">经营与终局</div>
+  <a class="nav" href="life.html"><span class="no">柒</span>洞府社交</a>
+  <a class="nav" href="endgame.html"><span class="no">捌</span>轮回终局</a>
+  <div class="group">资料</div>
+  <a class="nav" href="reference.html"><span class="no">玖</span>公式速查</a>
+  <a class="nav" href="tools.html"><span class="no">拾</span>存档工具</a>
+  <div class="sidefoot">
+    数据取自游戏 v1.33.0（2026-09）<br>
+    版权归作者 <a href="https://github.com/setube/yunyin-xiuxian">谦君</a> · CC BY-NC 4.0<br>
+    <a href="https://yunyin.wenzi.games">在线试玩 →</a>
+  </div>
+</aside>
+<main class="content"><div class="doc">
+<header class="pagehead"><h1>轮回与终局</h1><p>转世兵解 · 本世之界 · 机缘回响 · 真仙天界规则宇宙</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#rebirth">转世与轮回</a><a href="#world">本世之界</a><a href="#fortune">机缘链与回响</a><a href="#endgame">真仙终局</a><a href="#paths">道途四选一</a><a href="#expedition">远征与试炼</a><a href="#others">熔炉·道痕·器魂</a>
+</div>
+
+<h2 id="rebirth"><span class="no">壹</span>转世与轮回</h2>
+<h3>触发与流程</h3>
+<ul>
+  <li><b>主动兵解</b>：金丹境起可随时转世；<b>寿元耗尽</b>（年龄 ≥ 寿元）自动死亡进入转世。</li>
+  <li>转世流程：结算单（本世境界/寿元/命题结局/宿慧）→ 三选一天赋 + 额外 floor(大境/2) 项 → 选下一世命题 → 重掷灵根与本世之界 → 转生。</li>
+</ul>
+<h3>保留 / 失去</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>保留（跨世不灭）</th><th>清空 / 折损</th></tr></thead>
+<tbody>
+<tr><td>道果、天赋、宿慧与历世履历、认知图鉴（灵材/丹方/技艺/敌人）、灵脉点数、成就、师承、道源与道痕、修行节点与纪录、关系历史</td><td>灵石/灵气/悟道点/灵草/玄铁/残页/器灵尘全部归零；装备/丹药/法宝全失；<b>功法层数折半</b>（百世老修阶可留最深一门）；<b>建筑等级折半</b>；历练解锁重置；本世之界重掷；道途重选；灵根资质重掷（地板 = max(次数×5, 宿慧÷12)）</td></tr>
+</tbody></table></div>
+<h3>道果</h3>
+<pre><code>道果所得 = Σ(i=1..大境序号+1) i×3 + floor(小层/3)
+有效道果 = 道果^0.9        # 软上限、次线性但无界
+每颗有效道果：修速 +3%，战力 +1.5%</code></pre>
+<p>金丹圆满一世 = 21 枚道果——设计上明确承认：<b>道果效率最优点在金丹</b>——耗时按约 3.3 倍/境界指数增长，而道果只有二次增长，「金丹作为最快的道果农场予以承认」。道果没有消费出口：不解锁天界、不换任何东西，是纯粹的永久成长（速度项直接闭环「更快→更早轮回→更多道果」）。</p>
+<h3>宿慧与轮回阶</h3>
+<p>宿慧 = 存量（历世阅历 + 已达成命题）+ 现量（认知折算：认得灵材 +3、通晓再 +5；通晓丹方 +4；技艺熟练度和 ÷20；洞悉敌人 +2）。轮回阶「每一阶开的是『知道什么』，不是『加多少』」——一分属性不加：</p>
+<div class="tblwrap"><table>
+<thead><tr><th>阶</th><th>名称</th><th>所需宿慧</th><th>能力</th></tr></thead>
+<tbody>
+<tr><td class="num">0</td><td>初入轮回</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">1</td><td>熟知凡间</td><td class="num">90</td><td>睁眼即识 2 阶以下灵材</td></tr>
+<tr><td class="num">2</td><td>熟知修仙界</td><td class="num">260</td><td>即识 4 阶 + 战前见敌人机制</td></tr>
+<tr><td class="num">3</td><td>熟知天界</td><td class="num">600</td><td>即识 6 阶 + 天数可窥（天劫与终局规则细节提前可见）</td></tr>
+<tr><td class="num">4</td><td>百世老修</td><td class="num">1100</td><td>即识 9 阶 + <b>命题自选</b> + 留一门功法不折半</td></tr>
+</tbody></table></div>
+<h3>人生命题（15 种）</h3>
+<p>每世可立一题：<b>立题</b>（vow）+ <b>禁忌</b>（如服食丹药、祭用法宝，犯之即「破题」，当场判定、不扣任何东西）+ <b>判据</b>（全部按「本世」计）。达成得宿慧（如结丹 22、踏遍山川 24、识百草 26）。结局三种：践行到底 / 未竟 / 已破。命题按轮回阶开放，顶阶自选、其余抽三取一，走到底的题不再出现。</p>
+
+<div class="tip">转世时机：金丹境转世性价比最高——道果已初见规模、单境耗时又短，是公认的「农场」节奏；卡在大关突破时果断兵解，比硬耗寿元更有效率。宿慧攒到 90 以上跨入第二轮回阶，下一世的新手期会快一截。</div>
+<h2 id="world"><span class="no">贰</span>本世之界</h2>
+<p>每次转世（兵解）都程序化重组一个「本世之界」——用现有素材（20 区域/60 敌人/8 类 Boss 机制/51 事件）生成「这一世不一样」的凡界。区域从静态素材库变为按本世路线节点组织；<b>唯一换界时机是转世</b>。</p>
+<h3>世界生成</h3>
+<ul>
+  <li><b>路线骨架</b>（7 种）：短促 / 匀进 / 长尾 / 前缓后陡 / 前陡后缓 / 深浅交错 / 短程交错——决定每段地界的层级跳跃；</li>
+  <li><b>事件节奏</b>（6 种）：平稳 / 前紧后松 / 前松后紧 / 中段高压 / 双峰 / 终局堆积；</li>
+  <li><b>资源偏向</b>（5 种）：草木丰饶 / 矿脉深厚 / 典籍散佚 / 灵石充盈 / 药气氤氲；</li>
+  <li><b>此世规则</b>：从 8 条天道变数中取 1 条笼罩本世（如「生机断绝」治疗 −75%）；</li>
+  <li>每段地界按就近层级取 3 个小妖 + 1 个首领（全世去重），按节奏曲线定事件密度。</li>
+</ul>
+<h3>四门验收（mortalGate）</h3>
+<p>候选世界须过四道<b>互相独立</b>的门（「不可用综合分数掩盖关键维度缺失」）：①结构新颖度 ≥0.25（首领机制/敌人/事件加权 Jaccard）；②可行构筑 ≥3 且最强构筑胜率 ≤0.97；③路线骨架新颖度 ≥0.30；④事件节奏差异 ≥0.30。另有「首领生态」一票否决。任一门不过即换种子重来（最多 300 次）。</p>
+<p>世界身份按地貌轴（山岳/林泽/火域/天象/废墟/幽冥）+ 规则主题命名：「生机断绝的山岳之世」「X 与 Y 交错之世」等。可达性只追加不收回——已通段落仍可再去。</p>
+
+<h2 id="fortune"><span class="no">叁</span>机缘链与机缘回响</h2>
+<ul>
+  <li><b>机缘链</b>：「机缘不只是中奖：选择被记录，影响未来。」每次事件判定 2% 概率改判机缘事件（灵根同源权重加成）；你的每次选择记为 take（选非默认）/ leave（选默认）；机缘内容会向契合的师承「顺水推荐」（如剑痕机缘 → 剑修拜师高亮）。</li>
+  <li><b>机缘回响</b>：「世界认识你。」曾<b>放弃</b>的机缘再遇时有 5% 概率化作回声叙事（认出你 / 缘分已尽 / 留下痕迹）——「竹屋前的老人抬眼望来……『原来是你。』」边界锁死：只读选择记录，不产出任何资源属性。</li>
+</ul>
+
+<h2 id="endgame"><span class="no">肆</span>真仙终局总览</h2>
+<p>突破真仙后解锁天界（/celestial）。天界的核心命题是：<b>数值成长在天界互相抵消，只有构筑形状决定胜负</b>——装备词条按「器魂容量 1.3」归一，超出基准（2.6）部分敌人同步加厚，「九件神品与三件精品方向相同即为同一构筑」。</p>
+<h2 id="paths"><span class="no">伍</span>道途四选一（本世一诺，来世另择）</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>道途</th><th>效果</th><th>深化机制</th></tr></thead>
+<tbody>
+<tr><td><b>剑道</b>（剑）</td><td>暴击+10%、暴伤+30%、无视 15% 防御、承伤+10%</td><td><b>剑意纯度</b>至多 4 层（主流派契合≥60%/无副体系/法宝≤1/不修回血），每层伤害+4% 会心+2%，远征每胜 +1 层</td></tr>
+<tr><td><b>长生道</b>（寿）</td><td>治疗护盾效率+50%、护盾上限 65%、敌生命+20%</td><td><b>长生印</b>：每 5 回合恢复 4% 气血、凝 4% 护盾，但敌攻每印 +6%</td></tr>
+<tr><td><b>天机道</b>（机）</td><td>双方暴击+8%、闪避+6%</td><td><b>天机透视</b>：开战前窥见敌人招式明细与胜算</td></tr>
+<tr><td><b>杀伐道</b>（杀）</td><td>自攻+25%、敌攻+15%、回合上限 35</td><td><b>杀意</b>每胜伤害 +5%；速战之赏：场均 &lt;12 回合道源 +25%、&lt;18 +15%、&lt;24 +8%</td></tr>
+</tbody></table></div>
+<h2 id="expedition"><span class="no">陆</span>远征与试炼</h2>
+<ul>
+  <li><b>路线远征</b>：入界战 → 三层二择路 → 界主，共 5 场；携带血量、场间回复 50%、层间可回凡界换构筑再续行；出发前签<b>天道契约</b>（见下）。</li>
+  <li><b>四重天界</b>（各入场 20 道源、通关 60）：<b>赤炎天</b>（敌攻+40%、治疗−35%、回合上限32）、<b>万刃天</b>（敌多段连击且血厚）、<b>无生天</b>（治疗−70%、护盾上限25%）、<b>无相天</b>（敌闪避 35~42%、极快）。</li>
+  <li><b>天道试炼</b>（各入场 15、通关 45）：<b>七杀</b>（7 连战逐场 ×1.07、场间回三成，记最少总回合）、<b>一线</b>（每场开局 35% 气血、4 战）、<b>无回</b>（治疗完全无效、5 战）。</li>
+</ul>
+<h3>天道契约（6 种）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>契约</th><th>内容</th><th>道源倍率</th></tr></thead>
+<tbody>
+<tr><td>血契</td><td>治疗无效</td><td class="num">×2.2</td></tr>
+<tr><td>天残契</td><td>每场 70% 气血开局</td><td class="num">×1.7</td></tr>
+<tr><td>疾战契</td><td>回合上限 25</td><td class="num">×2.0</td></tr>
+<tr><td>孤剑契</td><td>仅 1 件法宝</td><td class="num">×1.6</td></tr>
+<tr><td>无伤契</td><td>每场战后 ≥80% 气血，否则契毁</td><td class="num">×3.0</td></tr>
+<tr><td>逆命契</td><td>封印主流派核心词条</td><td class="num">×4.0</td></tr>
+</tbody></table></div>
+<h2 id="others"><span class="no">柒</span>熔炉 · 道痕 · 器魂</h2>
+<ul>
+  <li><b>天道熔炉</b>：闲置资源换道源——玄铁 25→1、残页 15→1、灵草 60→1、器灵尘 80→1、灵石献祭→5；<b>道源 100 凝 1 枚道果</b>（「此物不随此身而灭」）。</li>
+  <li><b>天道变数挑战</b>：入场 18，抽 3 词缀 6 连战（逐场 ×1.06），通关 +55。</li>
+  <li><b>虚界之门</b>：花 10 道源生成一个程序化过审世界。</li>
+  <li><b>道痕</b>（至多 60 条）：记录每一战——第几世/道途/构筑名/战力/规则纪元/忆战快照。<b>忆战</b>：以当年冻结的构筑重打（无奖励）；<b>重写</b>：花 10 道源以今日之你重打，快过旧痕即「胜于旧我」。旧纪元的痕会标注「天道已变」。</li>
+  <li><b>器魂</b>（魂炉）：凡器入天界数值被抹平，凝炼<b>销毁原器</b> + 20 道源，按词条方向凝成六类器魂——锋（暴击/满血/先手）、盾（护盾/盾伤/减伤）、棘（反击/反伤）、连（连击/连伤/身法）、泽（吸血/回复/溢疗）、背（背水/濒危/处决）；六阶：朦胧→清晰→凝实→通灵→显形→化真（×1.0~2.3）；仅 3 个装配槽，逼迫取舍；无词条白板凝不出器魂。</li>
+</ul>
+<footer>
+  <p class="pn"><a href="life.html">← 洞府与社交</a><a href="reference.html">公式与机制 →</a></p>
+  <p>《云隐修仙录》Wiki —— 数据提取自 <a href="https://github.com/setube/yunyin-xiuxian">github.com/setube/yunyin-xiuxian</a> v1.33.0 源码（2026-09），仅供学习参考；游戏及素材版权归作者 <b>谦君</b> 所有，采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans">CC BY-NC 4.0</a> 许可（未经书面授权禁止商用）。在线试玩：<a href="https://yunyin.wenzi.games">yunyin.wenzi.games</a>。</p>
+</footer>
+</div></main>
+</div>
+<div class="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
