@@ -1,0 +1,147 @@
+<header class="pagehead"><h1>境界与修炼</h1><p>十境九十层 · 修为灵气 · 突破天劫 · 灵根定命</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#realms">境界总表</a><a href="#cult">修为与修速</a><a href="#weather">天时</a><a href="#unlock">功能解锁</a><a href="#bt">突破与成功率</a><a href="#trib">天劫</a><a href="#linggen">灵根系统</a>
+</div>
+
+<h2 id="realms"><span class="no">壹</span>境界总表</h2>
+<p>10 大境界 ×（九层＋圆满）共 90 级，完整境界名形如「金丹·三层」。突破筑基～渡劫需要渡天劫；真仙无劫，是大道尽头。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>境界</th><th>寿元（年）</th><th>大关天劫</th><th>题注</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>炼气</td><td class="num">150</td><td>—</td><td>引气入体，踏上仙途</td></tr>
+<tr><td>1</td><td>筑基</td><td class="num">300</td><td class="k">是</td><td>筑道之基，凡躯渐蜕</td></tr>
+<tr><td>2</td><td>金丹</td><td class="num">800</td><td class="k">是</td><td>丹成一粒，吞吐天地</td></tr>
+<tr><td>3</td><td>元婴</td><td class="num">3,000</td><td class="k">是</td><td>婴现顶门，神游太虚</td></tr>
+<tr><td>4</td><td>化神</td><td class="num">1 万</td><td class="k">是</td><td>神念化形，言出法随</td></tr>
+<tr><td>5</td><td>炼虚</td><td class="num">3 万</td><td class="k">是</td><td>炼神返虚，窥见大道</td></tr>
+<tr><td>6</td><td>合体</td><td class="num">10 万</td><td class="k">是</td><td>身道相合，举念移山</td></tr>
+<tr><td>7</td><td>大乘</td><td class="num">30 万</td><td class="k">是</td><td>大道将成，静候天命</td></tr>
+<tr><td>8</td><td>渡劫</td><td class="num">100 万</td><td class="k">是</td><td>九重雷海，向死而生</td></tr>
+<tr><td>9</td><td>真仙</td><td class="num">9,999 万+</td><td>—</td><td>超脱轮回，与道同存</td></tr>
+</tbody></table></div>
+<p>实际寿元 = 基础值 ×（1 + 寿元词条）+ 寿元加成；延寿丹等可直接加年数。</p>
+
+<h2 id="cult"><span class="no">贰</span>修为与修速</h2>
+<p>核心公式：</p>
+<pre><code>突破所需修为  expReq(M,S)   = 40 × 18^M × 1.32^S
+基础修速/秒   baseCult(M,S) = 1.6 × 5.2^M × 1.06^S
+实际修速      = 基础 × max(0.05, 1 + 修速总加成)
+灵气上限      = floor(100 × 6^M × 1.12^S × (1 + 聚灵阵等级 × 0.08))
+灵气恢复/秒   = 1.2 × 5.2^M × (1 + 灵气恢复词条 + 天时加成)</code></pre>
+<div class="tblwrap"><table>
+<thead><tr><th>境界</th><th>一层需求</th><th>圆满层需求</th><th>基础修速（一层→圆满，每秒）</th><th>单境净耗时增幅</th></tr></thead>
+<tbody>
+<tr><td>炼气</td><td class="num">40</td><td class="num">487</td><td class="num">2.0 → 3.0</td><td rowspan="10">每大境界约 ×3.46，零氪全程约 80–90 天在线等效</td></tr>
+<tr><td>筑基</td><td class="num">720</td><td class="num">8,760</td><td class="num">8.3 → 14</td></tr>
+<tr><td>金丹</td><td class="num">1.3 万</td><td class="num">15.8 万</td><td class="num">43 → 73</td></tr>
+<tr><td>元婴</td><td class="num">23.3 万</td><td class="num">284 万</td><td class="num">225 → 380</td></tr>
+<tr><td>化神</td><td class="num">420 万</td><td class="num">5,109 万</td><td class="num">1,170 → 1,976</td></tr>
+<tr><td>炼虚</td><td class="num">7,558 万</td><td class="num">9.2 亿</td><td class="num">6,083 → 10,278</td></tr>
+<tr><td>合体</td><td class="num">13.6 亿</td><td class="num">165.5 亿</td><td class="num">3.16 万 → 5.34 万</td></tr>
+<tr><td>大乘</td><td class="num">245 亿</td><td class="num">2,979 亿</td><td class="num">16.4 万 → 27.8 万</td></tr>
+<tr><td>渡劫</td><td class="num">4,408 亿</td><td class="num">5.36 万亿</td><td class="num">85.5 万 → 144.5 万</td></tr>
+<tr><td>真仙</td><td class="num">7.93 万亿</td><td class="num">96.5 万亿</td><td class="num">444.8 万 → 751.5 万</td></tr>
+</tbody></table></div>
+<p>修为在当前层满额即「修为圆满」，此时方可尝试突破。修为不会溢出到下一层。</p>
+<div class="tip">灵气尽量保持在上限 50% 以上——「灵气充盈」直接 +15% 修速，等于白送的加速；挂机突破小层时顺手点，卡大关前先换一身提高突破率的词条再试，比硬撞划算。</div>
+
+<h3>修速加成的来源</h3>
+<p>所有来源<b>加法合并</b>进一个乘区：装备词条＋功法＋天赋＋称号＋灵兽＋Buff＋建筑＋灵脉词条＋（灵根成长倍率 − 1）＋有效道果 × 0.03；灵气 ≥ 上限 50% 时再 +15%（「灵气充盈」）。总加成下限 −90%（最低保留 5% 速度）。</p>
+<ul>
+  <li>洞府建筑：洞府本体每级修速 +4%，聚灵阵每级修速 +3%、灵气恢复 +10%、灵气上限 +8%；</li>
+  <li>战斗修为：每胜一场得「当前层需求 × 1.2%」，首领 ×4；</li>
+  <li>天时：<a href="#weather">见下表</a>，灵雨天修速 +10%。</li>
+</ul>
+
+<h3 id="weather">天时（每日一换）</h3>
+<p class="m" style="font-size:12.5px">每天固定一种，全服同一日同一天时；权重：清和 30%，其余各约 17.5%。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>天时</th><th>效果</th><th>渡劫难度</th></tr></thead>
+<tbody>
+<tr><td>灵雨</td><td>灵气恢复 +20%，修炼速度 +10%</td><td class="num">×1</td></tr>
+<tr><td>赤阳</td><td>攻击 +5%，伤害增幅 +5%</td><td class="num">×1</td></tr>
+<tr><td>月蚀</td><td>气运 +5%，掉落率 +5%</td><td class="num">×1</td></tr>
+<tr><td>雷鸣</td><td>攻击 +5%，天劫抗性 −5%（更险）</td><td class="num">×1.08</td></tr>
+<tr><td>清和</td><td>无损益</td><td class="num">×1</td></tr>
+</tbody></table></div>
+
+<h3 id="unlock">境界功能解锁节点</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>境界</th><th>解锁</th></tr></thead>
+<tbody>
+<tr><td>炼气</td><td>洞府、聚灵阵、炼丹炉、灵田</td></tr>
+<tr><td>筑基</td><td>炼器台、藏经阁；首次大境界天劫</td></tr>
+<tr><td>金丹</td><td><b>灵脉投资</b>、灵兽园、<b>主动兵解转世</b></td></tr>
+<tr><td>元婴</td><td>秘境、第二法宝佩戴位</td></tr>
+<tr><td>真仙</td><td><b>天界终局</b>：道途四选一、远征、试炼、天道熔炉、器魂、道痕</td></tr>
+</tbody></table></div>
+
+<h3>顿悟</h3>
+<p>修炼中随机触发（5 分钟冷却、8% 概率），弹出<b>三选一</b>（类型不重复、60 秒选择窗口）：静心凝神（修速+20%）、道心通明（修速+35%）、锤炼筋骨（伤害+15%）、凝气护体（防御+12%）、悟透瓶颈（下次突破率+8%）、吐纳有序（灵气回复+25%）、灵机一动（悟道点获取+30%）。</p>
+<div class="note warn"><b>机制提示：</b>闭关与突破准备目前是「摆设」——选项可点但不产生任何数值效果，属已知的未完成机制，别把宝押在这上面。</div>
+
+<h2 id="bt"><span class="no">叁</span>突破与成功率</h2>
+<ul>
+  <li><b>条件</b>：修为已至圆满；灵气足够（消耗灵气上限的 <b>40%</b>）；未至大道尽头。</li>
+  <li><b>小层突破</b>（一层→下一层）：基础 95% − 3% × 当前层数（95% → 71%）；</li>
+  <li><b>大关突破</b>（圆满→下一大境界）：基础 78% − 5% × 目标大境界序号——筑基 78%、金丹 73%、元婴 68%、化神 63%、炼虚 58%、合体 53%、大乘 48%、渡劫 43%、真仙 38%。</li>
+  <li>最终成功率 = 基础 + 突破率词条 + 气运 × 0.05，截断在 [15%, 98%]。</li>
+</ul>
+<p><b>失败惩罚</b>：损失当前修为的 18%（「突破返还」词条最高抵消 80%），并获得「重伤」150 秒（修速 −50%、攻防 −20%）。<b>成功</b>则自动清除全部负面状态。</p>
+<div class="note good"><b>渡劫准备：</b>凝神丹（+8%）、破境丹（+15%）可提高成功率；<b>灵乳/回灵丹</b>回灵气以满足 40% 消耗门槛；天劫本身则靠「玄冥护体丹」（劫伤 −20%）与御雷词条、灵根解法通道应对。</div>
+
+<h2 id="trib"><span class="no">肆</span>天劫</h2>
+<p>大境界突破时触发（突破真仙无劫）。波次数 = <b>3 + 目标大境界序号</b>：筑基劫 4 道 → 渡劫劫 11 道。劫型由「目标境界 × 31 + 当日天时」的种子确定性抽取——同境界同天时必同劫型。</p>
+<h3>血量模型（UI 预览与结算共用）</h3>
+<pre><code>单波伤害（占最大生命比例）= max(0.04, (0.15 + 目标境界×0.02 + 波数×0.03) × (1 − 天劫抗性))
+天劫抗性 = min(0.8, 御雷词条 + 伤害减免 × 灵根折算率)
+水位 hpLeft = 1 + 起始护持；每波 hpLeft −= 单波 × (0.85~1.15 随机) − 每波回复
+hpLeft ≤ 0 即坠劫；血量 &lt; 30% 时伤害再乘 (1 − 濒危减伤)</code></pre>
+<h3>五种劫型</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>劫型</th><th>印</th><th>单波伤害</th><th>治疗效果</th><th>护盾效果</th><th>机制</th></tr></thead>
+<tbody>
+<tr><td>雷鸣</td><td>雷</td><td class="num">×1.12</td><td class="num">×1.1</td><td class="num k">×0.8</td><td>雷光破盾——抗性/减伤流主场</td></tr>
+<tr><td>逆流</td><td>流</td><td class="num">×0.95</td><td class="num k">×0.65</td><td class="num">×1</td><td>治疗大减——恢复流禁区</td></tr>
+<tr><td>裂魂</td><td>魂</td><td class="num">×1.0</td><td class="num">×1</td><td class="num">×1.1</td><td>爆发足者可削劫威（按爆发星级减免 0~30%）</td></tr>
+<tr><td>铁躯</td><td>躯</td><td class="num">×0.9</td><td class="num">×1.15</td><td class="num k">×0.45</td><td>钝压碾盾——恢复流/减伤流</td></tr>
+<tr><td>重压</td><td>压</td><td class="num">×1.0</td><td class="num">×1</td><td class="num">×1.25</td><td>前两波 ×1.7、其后 ×0.8（灵根「卸力」可平摊）</td></tr>
+</tbody></table></div>
+<h3>四维准备度与风险档</h3>
+<p>天劫界面按四维给出 0~3 星准备度评估：<b>护持</b>（开局护盾，阈值 8%/25%/40%）、<b>恢复</b>（每波回复，2%/4%/7%）、<b>抗性</b>（御雷，8%/20%/32%）、<b>爆发</b>（暴击+增伤，15%/35%/55%）。期望渡过率换算为风险档：<b>&lt;45% 高风险 · &lt;60% 中等 · &lt;80% 可渡 · ≥80% 稳渡</b>。游戏只给信息与建议（「可先练恢复，或等待更顺的天时」），引劫与否由你决定。</p>
+<div class="tip"><b>渡劫前 checklist：</b>① 看天时——避开「雷鸣」（天劫抗性 −5%、难度 ×1.08），等灵雨/清和再引劫；② 存够灵气——突破本身烧掉灵气上限的 40%，先嗑灵乳/回灵丹垫满；③ 按劫型备丹——「玄冥护体丹」减 20% 劫伤是万金油；④ 四维准备度有三星以上再上，两星以下宁可再挂几天修为。渡劫失败不清空修为，但重伤 150 秒，血本无归的只有丹药钱。</div>
+
+<h2 id="linggen"><span class="no">伍</span>灵根系统</h2>
+<h3>类别与生成</h3>
+<ul>
+  <li><b>基础五行</b>：金、木、水、火、土；<b>特殊灵根</b>：风、雷、冰、光、暗；<b>混沌</b>：0.8% 极稀有单根。</li>
+  <li><b>根数</b>权重：1 根 12 / 2 根 30 / 3 根 34 / 4 根 16 / 5 根 8；根数系数 1.6 / 1.35 / 1.15 / 1.0 / 0.9（越纯越高）；10% 概率将其中一根替换为特殊灵根（光暗权重 2、风雷冰权重 3）。</li>
+  <li>每根资质 = 40~100 随机 + 保底（转世后保底 = max(转世次数×5, 宿慧÷12)）。</li>
+  <li><b>成长倍率</b> growthMult = round2(平均资质 ÷ 60 × 根数系数 × (有特殊根 ? 1.2 : 1))；混沌灵根 = 1.6 × 资质/60 × 1.5。</li>
+  <li><b>品名</b>：天灵根（单根≥80）/ 异灵根（单根）/ 真灵根（2根）/ 上灵根（3根≥70）/ 伪灵根（3根）/ 杂灵根（4~5根）/ 变异灵根（含特殊根）/ 混沌灵根。</li>
+</ul>
+<p>成长倍率以「growthMult − 1」<b>加法</b>并入修速总加成——设计上有意<b>不做</b>「灵根→更高修速」的独立乘区。灵根真正的职能有三：①同源功法参悟权重 ×2.2~3.0；②同源机缘出现权重 ×2.5~3.2；③<b>天劫解法通道</b>（见下表）。</p>
+<h3>灵根亲和表</h3>
+<p class="m" style="font-size:12.5px">多根合并逐项取最大、不累加；「解法」是把劫型关掉的门半开（向常态回拉），不是白送增益。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>元素</th><th>功法权重</th><th>机缘权重</th><th>对应劫型</th><th>解法通道</th></tr></thead>
+<tbody>
+<tr><td>金</td><td class="num">×2.2</td><td class="num">×2.5</td><td>铁躯</td><td>护盾折扣回拉（0.5）</td></tr>
+<tr><td>木</td><td class="num">×2.2</td><td class="num">×2.5</td><td>逆流</td><td>治疗压制回拉（0.5）</td></tr>
+<tr><td>水</td><td class="num">×2.2</td><td class="num">×2.5</td><td>重压</td><td>起手削减平摊（0.35）</td></tr>
+<tr><td>火</td><td class="num">×2.2</td><td class="num">×2.5</td><td>裂魂</td><td>爆发星级 +1</td></tr>
+<tr><td>土</td><td class="num">×2.2</td><td class="num">×2.5</td><td>雷鸣</td><td>减伤折抗性（0.35）</td></tr>
+<tr><td>风 / 雷 / 冰 / 光 / 暗</td><td class="num">×2.6</td><td class="num">×2.8</td><td colspan="2">各自对应（风/水→重压，雷/土→雷鸣，冰/木→逆流，光/火→裂魂，暗/金→铁躯）并带同类解法，数值略高</td></tr>
+<tr><td class="k">混沌</td><td class="num k">×3.0</td><td class="num k">×3.2</td><td class="k">全部劫型通吃</td><td>五类解法兼得（数值各取 0.22~1）</td></tr>
+</tbody></table></div>
+<div class="note"><b>无对应灵根不惩罚：</b>无亲和者权重为 1，不锁任何路——灵根是「倾向」而非门槛。</div>
+<h3>天赋（转世获取，33 种）</h3>
+<p>按品阶加权抽取：凡赋权重 100、灵赋 45、天赋 15、道赋 4。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>品阶</th><th>天赋（效果）</th></tr></thead>
+<tbody>
+<tr><td>凡赋</td><td>道骨（修速+8%）｜灵慧（经验+10%）｜铁骨（生命+10% 防+5%）｜迅捷（身法+8%）｜聚福（灵石+12%）｜善补（每轮回复+1% 生命+5%）｜空明（灵气回复+10% 修速+4%）</td></tr>
+<tr><td>灵赋</td><td>剑心（攻+12% 暴击+3%）｜福缘（气运+10% 奇遇+10%）｜圆融（突破+3% 返还+10%）｜悟妄（修速+15%）｜神棍（奇遇+15% 闪避+3%）｜妖缘（探索+12% 掉落+6%）｜丹心（炼丹产出+20%）｜巧匠（锻造折扣+15%）｜沧澜（灵气回复+20%）｜孤勇（残血减+15% 斩杀+10%）｜探宝（掉落+12% 双掉+5%）｜破釜（残血伤+15% 残血减+8%）｜盾心（开局盾+8% 盾强+10%）｜荆棘（反击率+8% 反伤+15%）</td></tr>
+<tr><td>天赋</td><td>天命（突破+5% 气运+5%）｜长生（寿元+30%）｜破天（攻+18% 伤害+8%）｜不坏（防+15% 减伤+6%）｜无垢（修速+10% 突破+4%）｜卓越（攻防生各+8%）｜雷体（抗劫+15% 攻+8%）</td></tr>
+<tr><td>道赋</td><td>鸿运（气运+20% 突破+6% 掉落+10%）｜道子（修速+30% 经验+15%）｜战神（攻+25% 暴击+5% 暴伤+30%）｜龟灵（寿元+50% 生命+20%）｜混元（攻防生各+15% 减伤+5%）</td></tr>
+</tbody></table></div>
