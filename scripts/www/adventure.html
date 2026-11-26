@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>历练与战斗</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="menu-toggle" title="打开目录">☰</div>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">云隐修仙录<span> · WIKI</span></div>
+  <hr class="brandline">
+  <div class="group">指南</div>
+  <a class="nav" href="index.html"><span class="no">壹</span>首页概览</a>
+  <a class="nav" href="realms.html"><span class="no">贰</span>境界修炼</a>
+  <a class="nav" href="gongfa.html"><span class="no">叁</span>功法流派</a>
+  <div class="group">成长</div>
+  <a class="nav" href="equipment.html"><span class="no">肆</span>装备锻造</a>
+  <a class="nav" href="items.html"><span class="no">伍</span>丹药经济</a>
+  <a class="nav" href="adventure.html"><span class="no">陆</span>历练战斗</a>
+  <div class="group">经营与终局</div>
+  <a class="nav" href="life.html"><span class="no">柒</span>洞府社交</a>
+  <a class="nav" href="endgame.html"><span class="no">捌</span>轮回终局</a>
+  <div class="group">资料</div>
+  <a class="nav" href="reference.html"><span class="no">玖</span>公式速查</a>
+  <a class="nav" href="tools.html"><span class="no">拾</span>存档工具</a>
+  <div class="sidefoot">
+    数据取自游戏 v1.33.0（2026-09）<br>
+    版权归作者 <a href="https://github.com/setube/yunyin-xiuxian">谦君</a> · CC BY-NC 4.0<br>
+    <a href="https://yunyin.wenzi.games">在线试玩 →</a>
+  </div>
+</aside>
+<main class="content"><div class="doc">
+<header class="pagehead"><h1>历练与战斗</h1><p>20 区域 · 60 敌人 · 51 事件 · 回合制预解算战斗</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#mode">历练模式</a><a href="#regions">区域总表</a><a href="#enemies">敌人与Boss</a><a href="#events">随机事件</a><a href="#realm">秘境</a><a href="#mut">天道变数</a><a href="#challenge">挑战书</a><a href="#misc">镇压与图鉴</a><a href="#loot">掉落率</a><a href="#combat">战斗系统</a>
+</div>
+
+<h2 id="mode"><span class="no">壹</span>历练模式</h2>
+<p>派遣式：选区域出发，角色自动历练，你可以随时回到别的页面干别的。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>模式</th><th>时长</th><th>收益倍率</th><th>危险倍率</th></tr></thead>
+<tbody>
+<tr><td>寻常游历</td><td class="num">30 分钟</td><td class="num">×1.0</td><td class="num">×1.0</td></tr>
+<tr><td>深入探寻</td><td class="num">1 小时</td><td class="num">×1.4</td><td class="num">×1.45</td></tr>
+<tr><td>涉险求机</td><td class="num">2 小时</td><td class="num">×1.9</td><td class="num">×2.1</td></tr>
+</tbody></table></div>
+<p><b>会话流程</b>：每 12 秒（÷历练速度）推进一次——16% 概率触发随机事件，否则进入一场战斗（后台解算后回放）；事件弹窗搁置 120 秒自动按默认选项结算；每积累 <b>10 胜</b>可挑战本区域未通关的<b>首领</b>，击败首领解锁下一区域；战败即中断历练并得「重伤」。每次战斗 6% 概率遇见道侣候选人或推进既有关系。</p>
+
+<h2 id="regions"><span class="no">贰</span>区域总表（20 处）</h2>
+<p class="m" style="font-size:12.5px">危险度：1 平缓 / 2 寻常 / 3 凶险 / 4 大凶 / 5 绝地。解锁需境界达标且本世路线轮到，击败首领解锁下一区域。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>区域</th><th>tier</th><th>解锁境界</th><th>危险</th><th>普通敌人</th><th>首领</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>青云山麓</td><td class="num">1</td><td>炼气</td><td>平缓</td><td>赤目野狼、山间野猪</td><td>独角妖狼</td></tr>
+<tr><td>2</td><td>落霞谷</td><td class="num">2</td><td>炼气</td><td>平缓</td><td>落霞灵雀、谷中石猿</td><td>霞光巨蟒</td></tr>
+<tr><td>3</td><td>黑风林</td><td class="num">3</td><td>筑基</td><td>寻常</td><td>黑风狼、噬人藤</td><td>黑风妖王</td></tr>
+<tr><td>4</td><td>寒潭幽窟</td><td class="num">4</td><td>筑基</td><td>寻常</td><td>寒潭水蛇、幽窟蝙蝠</td><td>玄冰蛟</td></tr>
+<tr><td>5</td><td>万妖林</td><td class="num">5</td><td>筑基</td><td>寻常</td><td>三尾灵狐、铁背妖熊</td><td>万妖林主</td></tr>
+<tr><td>6</td><td>古战场遗迹</td><td class="num">6</td><td>金丹</td><td>凶险</td><td>残魂兵俑、怨灵骑士</td><td>古将军亡魂</td></tr>
+<tr><td>7</td><td>赤炎火域</td><td class="num">7</td><td>金丹</td><td>凶险</td><td>赤炎狼、火岩傀儡</td><td>炎狱魔君</td></tr>
+<tr><td>8</td><td>幽冥海</td><td class="num">8</td><td>元婴</td><td>凶险</td><td>幽冥鬼鲛、海底沉尸</td><td>幽冥海皇</td></tr>
+<tr><td>9</td><td>迷雾沼泽</td><td class="num">9</td><td>元婴</td><td>凶险</td><td>瘴毒巨蟒、沼泽泥怪</td><td>万毒老祖</td></tr>
+<tr><td>10</td><td>剑冢</td><td class="num">10</td><td>元婴</td><td>大凶</td><td>剑灵傀儡、断剑残魂</td><td>剑冢之主</td></tr>
+<tr><td>11</td><td>雷泽</td><td class="num">11</td><td>化神</td><td>大凶</td><td>雷泽妖蛟、紫雷鹰</td><td>雷帝残念</td></tr>
+<tr><td>12</td><td>昆仑雪岭</td><td class="num">12</td><td>化神</td><td>大凶</td><td>雪岭冰猿、霜狼</td><td>堕落冰魄仙子</td></tr>
+<tr><td>13</td><td>荒古妖庭</td><td class="num">13</td><td>炼虚</td><td>大凶</td><td>妖庭卫士、九头妖蛇</td><td>荒古妖圣</td></tr>
+<tr><td>14</td><td>沉沙古城</td><td class="num">14</td><td>炼虚</td><td>大凶</td><td>沙化行尸、石像鬼</td><td>古城域主</td></tr>
+<tr><td>15</td><td>蜃楼幻海</td><td class="num">15</td><td>合体</td><td>绝地</td><td>蜃妖、幻海罗刹</td><td>蜃楼之主</td></tr>
+<tr><td>16</td><td>九幽魔渊</td><td class="num">16</td><td>合体</td><td>绝地</td><td>魔渊恶鬼、噬魂魔将</td><td>九幽魔尊</td></tr>
+<tr><td>17</td><td>星陨荒原</td><td class="num">17</td><td>大乘</td><td>绝地</td><td>星陨傀儡、陨铁兽</td><td>星空古兽</td></tr>
+<tr><td>18</td><td>天外天</td><td class="num">18</td><td>大乘</td><td>绝地</td><td>天外来客、虚空游鱼</td><td>虚空古神</td></tr>
+<tr><td>19</td><td>仙人遗府</td><td class="num">19</td><td>渡劫</td><td>绝地</td><td>守府仙傀、仙府石麟</td><td>仙府之灵</td></tr>
+<tr><td>20</td><td>鸿蒙裂隙</td><td class="num">20</td><td>渡劫</td><td>绝地</td><td>鸿蒙残兽、混沌魔影</td><td>鸿蒙古魔</td></tr>
+</tbody></table></div>
+
+<h2 id="enemies"><span class="no">叁</span>敌人与数值模型</h2>
+<p>60 种敌人 = 40 普通 + 20 首领。数值由层级曲线统一生成，再叠每只的个性倍率（普通敌气血 0.8~1.8、攻 0.85~1.7、防 0.7~1.6、速 0.65~1.4；首领气血 2.8~6.6、攻 1.1~2.6）：</p>
+<pre><code>敌人攻击 = 战力曲线(tier) × 12 × 攻击倍率 × 装备补偿
+装备补偿 = 0.9 × 1.105^(tier−1) × 危险系数   # 敌人随玩家装备水平同步加厚
+危险系数 = 模式危险 × (1+(区域危险−1)×0.05) × 灵兽性格 × 区域事件倍率</code></pre>
+<p>代表性机制随层级登场：山间野猪「猪突」1.6 倍 → 噬人藤「缠绕吸血」→ 三尾灵狐「魅惑眩晕＋闪避15%」→ 火岩傀儡「熔岩护体」→ 断剑残魂「残剑一斩·真伤」→ 紫雷鹰「雷羽连击」→ 星陨傀儡「星辉贯穿炮」→ 鸿蒙残兽「鸿蒙撕咬 2.5 倍」。</p>
+<h3>Boss 八大原型（首领机制家族）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>家族</th><th>印</th><th>核心词条</th><th>代表首领</th></tr></thead>
+<tbody>
+<tr><td>狂暴型</td><td>狂</td><td>伤害增幅，越战越强</td><td>独角妖狼、炎狱魔君、雷帝残念、星空古兽、鸿蒙古魔</td></tr>
+<tr><td>反制型</td><td>反</td><td>反击率 35% / 反击威力 50%</td><td>霞光巨蟒</td></tr>
+<tr><td>真伤型</td><td>真</td><td>残血换真伤大招</td><td>玄冰蛟、剑冢之主、虚空古神</td></tr>
+<tr><td>治疗压制型</td><td>禁</td><td>吸血 15~20%，压治疗</td><td>幽冥海皇、九幽魔尊</td></tr>
+<tr><td>吞法型</td><td>噬</td><td>伤害减免 15~30%</td><td>黑风妖王</td></tr>
+<tr><td>闪避型</td><td>影</td><td>闪避 30~55%</td><td>堕落冰魄仙子、蜃楼之主</td></tr>
+<tr><td>消耗型</td><td>耗</td><td>每回合回复 1.5~5%</td><td>万妖林主、万毒老祖、荒古妖圣</td></tr>
+<tr><td>门槛型</td><td>门</td><td>开局护盾 25~55%</td><td>古将军亡魂、古城域主、仙府之灵</td></tr>
+</tbody></table></div>
+<p><b>Boss 阶段</b>：血量降到阈值时变阵——独角妖狼血余 50% 「狂化」（增伤+0.5，换 2.2 倍技）；玄冰蛟血余 60% 「冰封·贯体」2.3 倍真伤；鸿蒙古魔「灭世」增伤+0.7、开天·灭世 3.6 倍真伤，为全游戏最高倍率。</p>
+
+<h2 id="events"><span class="no">肆</span>随机事件（51 个普通 + 5 类机缘）</h2>
+<p>事件池按区域标签匹配（山岳/林泽/水域/废墟/火域/幽冥/剑冢/雷泽/天象），支持境界门槛与一次性事件。选项可带条件（境界/灵石/灵根元素），每个选项含若干<b>加权结局</b>。效果类型：灵石、修为、材料、装备（可保底品质）、丹药、功法、法宝、Buff/祝福/诅咒、寿元、灵兽。</p>
+<ul>
+  <li>古老玉简·拾取：50% 功法 / 30% 残页×8 / 20% 重伤；</li>
+  <li>插剑石·拔剑：15% 精品装备 / 45% 修为 8% / 40% 重伤；</li>
+  <li>受伤的灵兽·疗伤：25% 灵兽认主；</li>
+  <li>机缘「上古剑痕」：65% 直得功法。</li>
+</ul>
+<p><b>祝福/诅咒</b>：清风拂面（修速+20%）、机缘加身（气运+20% 奇遇+15%）、道韵加身（修速+40% 战斗修为+20%）、心魔缠身（修速−30% 突破−10%）、重伤等 17 种。</p>
+
+<h2 id="realm"><span class="no">伍</span>秘境（元婴解锁）</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>秘境</th><th>固定规则</th><th>最低境界</th><th>入场道源*</th></tr></thead>
+<tbody>
+<tr><td>枯荣古境</td><td>所有治疗 +100%，但每场结束损失 10% 最大生命</td><td>元婴</td><td class="num">40</td></tr>
+<tr><td>剑冢幻境</td><td>攻击 +30%，防御 −20%</td><td>元婴</td><td class="num">60</td></tr>
+<tr><td>苦海渡舟</td><td>每战只回 30% 气血，但道源收益 +50%</td><td>化神</td><td class="num">80</td></tr>
+</tbody></table></div>
+<p class="m" style="font-size:12.5px">* 道源为终局资源（见<a href="endgame.html">真仙终局</a>）。秘境另有一次性随机规则流程：随机规则 → 3 层（事件/战斗/抉择）→ 最终宝藏，失败 2 次强制出局。进入时随机抽 1~2 条额外规则：治疗减半 / 敌方追击 / 每战损 5% 生命 / 回合上限 20 / 妖兽狂化 / 不得用盾 / 灵力枯竭。</p>
+
+<h2 id="mut"><span class="no">陆</span>天道变数（8 条）</h2>
+<p>凡界「此世笼罩」与天界挑战共用的规则词缀：生机凋敝（治疗 −75%）、盾薄如纸（护盾上限 25%）、敌影幢幢（敌闪避 +25%）、天时紧迫（回合上限 32）、血气翻涌（敌我暴伤 +60%）、敌体魁伟（敌生命 +28%）、杀气盈天（敌我攻击 +25%）、天罚加身（敌暴击 +15%）。主题五轴：生机断绝 / 天时如刀 / 杀气沸腾 / 虚影幢幢 / 磐石难移。</p>
+
+<h2 id="challenge"><span class="no">柒</span>挑战书与今日天道</h2>
+<ul>
+  <li><b>天道挑战书</b>：自组「世界 × 至多3变数 × 契约 × 名号」自创挑战；系统用六大标准流派各模拟 8 次实测难度并定价奖励（30~90 道源）——通关率 ≥85%「闲庭信步」、≥60%「略有凶险」、≥40%「凶险」、否则「九死一生」；&lt;15% 判「近乎无解」、&gt;97% 判「形同虚设」均驳回。</li>
+  <li><b>今日天道</b>：按日期种子确定性生成（刷新不换题）：随机世界 + 2 条词缀 + 35% 概率契约，当日限领一次赏。</li>
+</ul>
+
+<h2 id="misc"><span class="no">捌</span>镇压、区域事件与图鉴认知</h2>
+<ul>
+  <li><b>镇压</b>：同区域 ≥20 战、平均回合 ≤3、平均受伤 ≤10% 即镇压成功——此后每小时被动产出灵石并 40% 概率掉装备；超 72 小时无活动「妖气复聚」解除。</li>
+  <li><b>区域动态事件</b>（30~120 分钟窗口，每次检查 0.85%）：妖潮（掉落×1.2 危险×1.15）、灵脉暴动、古墓开启（掉落×1.15 事件×1.5）、商队遇袭（掉落×1.25 危险×1.1）。</li>
+  <li><b>敌人图鉴认知</b>四层：未识 → 眼熟 → 知其路数 → 洞悉。层 1 看体格，层 2 知招式门道（震慑/噬血/起盾/多段/真伤），层 3 提前看到残血变阵。同一敌人败北 3 次记为<b>宿敌</b>，斩杀即「雪耻」；已雪耻宿敌有 3% 概率以残魂形态再现。</li>
+</ul>
+
+<h2 id="loot"><span class="no">附</span>掉落率速查（每场胜利）</h2>
+<p>战斗胜利后的掉落按下列基础概率结算，全部概率受「奖励倍率」（历练模式/首领加成）、气运与掉落词条加成。首领的奖励倍率按 <b>×4</b> 计入灵石与修为，装备/丹药另有独立加成。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>掉落物</th><th>基础概率</th><th>首领加成</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>灵石</td><td class="num k">100%</td><td>—</td><td>数量 = <code>12 × 1.9^(tier−1)</code> 为基准 ×(0.8~1.2 随机)，tier 为区域层级（1~20），即层级每 +1 灵石近乎翻倍</td></tr>
+<tr><td>战斗修为</td><td class="num k">100%</td><td class="num">×4</td><td>当前层需求的 1.2% ×奖励倍率</td></tr>
+<tr><td>装备</td><td class="num">30%</td><td class="num">×2.5</td><td>首领必掉 1 件且品质下限为精品（灵品起）；掉率受掉落词条加成，上限 90%</td></tr>
+<tr><td>丹药</td><td class="num">8%</td><td class="num">×3</td><td>从当前境界可用的掉落丹药池按品质加权抽取（品质越高越稀有）</td></tr>
+<tr><td>功法残页</td><td class="num">12%</td><td>—</td><td>1~2 张</td></tr>
+<tr><td>法宝</td><td class="num">1.5%</td><td class="num">×6</td><td>稀有掉落；受气运加成；重复获得折算悟道点 ×10</td></tr>
+<tr><td>灵草</td><td class="num">50%</td><td>—</td><td>1~3 株</td></tr>
+<tr><td>玄铁</td><td class="num">35%</td><td>—</td><td>1~2 块</td></tr>
+</tbody></table></div>
+<ul>
+  <li><b>双倍战利</b>：词条触发时所有类别一并 ×2（灵石/修为/材料数量、装备判定次数）；</li>
+  <li><b>历练模式</b>：深入探寻 ×1.4、涉险求机 ×1.9 直接乘进各类概率与数量——想刷装备挑高倍率模式；</li>
+  <li><b>月蚀天时</b>：掉落率 +5%；气运词条同时抬高装备与法宝概率；</li>
+  <li><b>镇压区域</b>：挂机状态每小时产出灵石并有 40% 概率掉装备（不需要手动战斗）。</li>
+</ul>
+<div class="tip">刷装备效率最高的组合是「高层级区域 + 涉险求机 + 掉落/气运词条 + 月蚀天时」；但要掂量战力——战败即中断历练还得 150 秒重伤。灵石紧缺时优先去高 tier 区域挂机：层级每高一级，灵石基准近乎 ×1.9。</div>
+
+<h2 id="combat"><span class="no">玖</span>战斗系统</h2>
+<h3>属性与公式</h3>
+<ul>
+  <li>基础三维：攻击 12 / 防御 7 / 气血 150，每大境界 ×3.4、每小层 ×1.09；</li>
+  <li>最终属性 =（境界基础 + 装备平铺）× (1 + 百分比词条 + 有效道果 × 1.5%)；</li>
+  <li><b>战力</b> = 攻击×3 + 防御×2 + 气血×0.15；另有五维星级：进攻 / 生存 / 身法 / 恢复 / 机制（1~5 星，构筑页展示）。</li>
+</ul>
+<h3>伤害结算</h3>
+<pre><code>减伤率 red = 敌防×(1−破甲) / (敌防×(1−破甲) + 我攻×1.15)，上限 75%
+伤害 = 攻击 × 技能倍率 × (1+伤害增幅) × (1−被削弱)
+       × 先手/处决/背水/锋芒/罡盾 等条件系数
+       × (1 ± 10% 随机浮动)
+       × 会心 ? (1 + 0.5 + 暴伤) : 1
+       × (1 − red)          # 真伤：护盾与减伤词条无效，防御减免减半
+       × max(0.1, 1 − 目标减伤 − 濒危减伤)</code></pre>
+<h3>回合流程</h3>
+<ul>
+  <li><b>先手</b>：玩家有效速度（1+速度词条）≥ 敌速则先动，每回合双方各行动一次；</li>
+  <li><b>行动顺序</b>：回合回复 → 法宝自动触发（按各自间隔回合）→ 被震慑则跳过 → 依次判定技能（各带触发率）→ 普攻；</li>
+  <li><b>技能附加</b>：多段（两次 45% 追打）、震慑（50% 跳过下回合）、汲血（回 6% 生命）、结盾（10% 生命盾）、流血（30% 攻直接伤害）；</li>
+  <li><b>普攻连锁</b>：吸血按最终伤害结算；目标 25~45% 反击率（威力 0.5×(1+反击威力)）；攻击方连击率触发 0.6 倍追击；</li>
+  <li><b>护盾</b>：总量 ≤ 最大生命 50%；溢疗可按词条转盾；</li>
+  <li><b>胜负</b>：50 回合耗尽判玩家负——「拖不死对方即无功而返」，防躺赢流。</li>
+</ul>
+<div class="note"><b>长生印规则</b>（长生道途）：每隔数回合玩家回复+获盾，但敌人攻势渐涨（atkRamp 递增）——拖得越久，天威越重。</div>
+<footer>
+  <p class="pn"><a href="items.html">← 丹药与经济</a><a href="life.html">洞府与社交 →</a></p>
+  <p>《云隐修仙录》Wiki —— 数据提取自 <a href="https://github.com/setube/yunyin-xiuxian">github.com/setube/yunyin-xiuxian</a> v1.33.0 源码（2026-09），仅供学习参考；游戏及素材版权归作者 <b>谦君</b> 所有，采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans">CC BY-NC 4.0</a> 许可（未经书面授权禁止商用）。在线试玩：<a href="https://yunyin.wenzi.games">yunyin.wenzi.games</a>。</p>
+</footer>
+</div></main>
+</div>
+<div class="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
