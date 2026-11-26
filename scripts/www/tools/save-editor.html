@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>云隐修仙录 · 存档修改器</title>
+<link rel="stylesheet" href="editor/editor.css" />
+</head>
+<body>
+<div class="wrap">
+  <h1>云隐修仙录 · 存档修改器</h1>
+  <p class="sub"> <a href="../tools.html" style="color:var(--cinnabar)">← 返回 Wiki</a></p>
+
+  <div id="statusBar" class="status warn">尚未载入存档</div>
+
+  <div class="tabs" id="tabs">
+    <button data-tab="load" class="active">载入</button>
+    <button data-tab="pc" disabled>修行</button>
+    <button data-tab="res" disabled>资源</button>
+    <button data-tab="gf" disabled>功法</button>
+    <button data-tab="ti" disabled>名号成就</button>
+    <button data-tab="adv" disabled>装备洞府</button>
+    <button data-tab="save" disabled>写回</button>
+  </div>
+
+  <!-- ═════════ 载入 ═════════ -->
+  <section id="tab-load">
+    <div class="card">
+      <h2>载入存档（.save）</h2>
+      <div class="dropzone" id="dropzone">
+        <p class="big">点击选择 或 拖入 .save 文件</p>
+        <p class="hint">游戏内「设置 → 存档 → 导出存档」下载的 <b>yunyin-xiuxian-日期.save</b></p>
+      </div>
+      <input type="file" id="fileInput" accept=".save,.json,.txt" class="hide" />
+      <p class="hint" style="margin-top:10px">
+        修改器与游戏使用同一套 AES 密钥，读写完全兼容；全程在本页完成，不经过任何网络。<br />
+        载入后原档会自动留底，可随时在「写回」页下载原始备份。
+      </p>
+    </div>
+    <div class="card hide" id="loadedCard">
+      <h2>当前存档</h2>
+      <p class="summary" id="loadSummary"></p>
+      <div class="btns" style="justify-content:center">
+        <button class="act" onclick="switchTab('pc')">开始修改 →</button>
+        <button class="act" onclick="fileInput.click()">换一个档</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 修行 ═════════ -->
+  <section id="tab-pc" class="hide">
+    <div class="card">
+      <h2>道号 · 名号</h2>
+      <label class="row"><span class="lab">道号</span><input type="text" id="f_name" /></label>
+      <label class="row"><span class="lab">佩戴称号</span><select id="f_title"></select></label>
+      <label class="row"><span class="lab">相伴灵兽</span><select id="f_pet"></select></label>
+      <label class="row"><span class="lab">道陨（死亡标记）</span><input type="checkbox" id="f_dead" /></label>
+    </div>
+    <div class="card">
+      <h2>境界 · 修为</h2>
+      <div class="grid2">
+        <label class="row"><span class="lab">大境界</span><select id="f_major"></select></label>
+        <label class="row"><span class="lab">层次</span><select id="f_sub"></select></label>
+      </div>
+      <label class="row"><span class="lab">修为 <span class="gnum-hint" id="hint_exp"></span></span><input type="text" id="f_exp" placeholder="支持 1e18 / 12345" style="direction:ltr" /></label>
+    </div>
+    <div class="card">
+      <h2>灵根 <span class="gnum-hint" id="hint_linggen"></span></h2>
+      <p class="hint">1~5 根；资质 30~100，根数越少倍率越高，含特殊灵根再 ×1.2。</p>
+      <div id="lgRows"></div>
+      <div class="grid3" style="margin-top:8px">
+        <button class="act small" onclick="lgAdd()">加一根</button>
+        <button class="act small" onclick="lgDel()">减一根</button>
+        <button class="act small" onclick="lgRoll()">随机一副</button>
+      </div>
+      <label class="row"><span class="lab">灵根品名</span><input type="text" id="f_lgGrade" readonly /></label>
+      <label class="row"><span class="lab">修炼速度倍率</span><input type="number" id="f_lgGrowth" step="0.01" min="0.4" max="4" style="direction:ltr" /><span class="gnum-hint" id="hint_lgGrowth"></span></label>
+      <p class="hint">倍率随资质自动算出，也可手动微调，超出合理范围（约 0.4~4.0）会被自动拉回。倍率减 1 就是修速加成：1.8 = 修速 +80%。</p>
+    </div>
+    <div class="card">
+      <h2>道侣 · 师承</h2>
+      <label class="row"><span class="lab">道侣</span><select id="f_daolu"></select></label>
+      <div class="grid2">
+        <label class="row"><span class="lab">关系阶段</span><select id="f_bondStage"></select></label>
+        <label class="row"><span class="lab">共历险境（次）</span><input type="number" id="f_bondShared" min="0" max="999" /></label>
+      </div>
+      <div class="grid3">
+        <label class="row"><span class="lab">缘分</span><input type="number" id="f_bondFate" min="0" max="100" /></label>
+        <label class="row"><span class="lab">信任</span><input type="number" id="f_bondTrust" min="0" max="100" /></label>
+        <label class="row"><span class="lab">道心契合</span><input type="number" id="f_bondAccord" min="0" max="100" /></label>
+      </div>
+      <p class="hint">结为道侣需：缘分 ≥80、信任 ≥75、契合 ≥65、共历 ≥4 次，三项数值不足会被游戏压回阶段门槛。道侣只影响这一世的剧情与事件，不提供数值加成。</p>
+      <hr class="sep" />
+      <label class="row"><span class="lab">师承</span><select id="f_mentor"></select></label>
+      <p class="hint">师承给一条方向性小加成：剑修（暴击+3% 伤害+2%）/ 丹修（每轮回复+1% 炼丹产出+5%）/ 阵修（减伤、开局护盾）/ 猎修（探索、掉落）。</p>
+      <hr class="sep" />
+      <label class="row"><span class="lab">陪行灵兽（历练同行）</span><select id="f_beast"></select></label>
+    </div>
+    <div class="card">
+      <h2>寿元</h2>
+      <div class="grid2">
+        <label class="row"><span class="lab">当前年龄（岁）</span><input type="number" id="f_age" min="0" max="99999" step="any" /></label>
+        <label class="row"><span class="lab">寿元加成（年）</span><input type="number" id="f_lifespanBonus" min="0" max="999999" /></label>
+      </div>
+      <p class="hint">寿元上限 = 境界寿元 + 加成；年龄改小即可「返老还童」。</p>
+    </div>
+    <div class="card">
+      <h2>轮回</h2>
+      <div class="grid3">
+        <label class="row"><span class="lab">轮回次数</span><input type="number" id="f_reinc" min="0" max="9999" /></label>
+        <label class="row"><span class="lab">道果</span><input type="number" id="f_daoFruit" min="0" max="99999" /></label>
+        <label class="row"><span class="lab">宿慧</span><input type="number" id="f_insight" min="0" max="999999" /></label>
+      </div>
+      <p class="hint">宿慧超过 1100 即达最高轮回阶「百世老修」，给更高只是数字好看。</p>
+    </div>
+  </section>
+
+  <!-- ═════════ 资源 ═════════ -->
+  <section id="tab-res" class="hide">
+    <div class="card">
+      <h2>灵石</h2>
+      <label class="row"><span class="lab">数量 <span class="gnum-hint" id="hint_stone"></span></span><input type="text" id="f_stone" placeholder="支持 1e15 / 999999" style="direction:ltr" /></label>
+    </div>
+    <div class="card">
+      <h2>材料与悟道</h2>
+      <div class="grid3">
+        <label class="row"><span class="lab">悟道点</span><input type="number" id="f_wudao" min="0" max="99999999" /></label>
+        <label class="row"><span class="lab">灵气</span><input type="number" id="f_qi" min="0" max="99999999" step="any" /></label>
+        <label class="row"><span class="lab">灵草</span><input type="number" id="f_herb" min="0" max="99999999" /></label>
+        <label class="row"><span class="lab">矿石</span><input type="number" id="f_ore" min="0" max="99999999" /></label>
+        <label class="row"><span class="lab">丹方残页</span><input type="number" id="f_page" min="0" max="99999999" /></label>
+        <label class="row"><span class="lab">器尘</span><input type="number" id="f_dust" min="0" max="99999999" /></label>
+      </div>
+      <p class="hint">数量给到千万级（9,999,999）已远超正常游玩所需，再大游戏内也显示不了更多位数。</p>
+    </div>
+  </section>
+
+  <!-- ═════════ 功法 ═════════ -->
+  <section id="tab-gf" class="hide">
+    <div class="card">
+      <h2>功法（33 部）</h2>
+      <div class="btns" style="margin:0 0 8px">
+        <button class="act small" onclick="gfAll(9)">全部满级</button>
+        <button class="act small" onclick="gfAll(0)">全部遗忘</button>
+      </div>
+      <table class="gf" id="gfTable">
+        <thead><tr><th></th><th>功法</th><th>等级</th><th>主修</th><th>辅修</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="hint" style="margin-top:6px">等级 0 = 未习得；主修上限 9 级，秘术上限 3 级。主修单选，辅修可多选。</p>
+    </div>
+  </section>
+
+  <!-- ═════════ 名号成就 ═════════ -->
+  <section id="tab-ti" class="hide">
+    <div class="card">
+      <h2>名号收藏（12）</h2>
+      <p class="hint" style="margin-bottom:6px">勾选即拥有，到游戏「名号」页即可佩戴。其中「炼气修士」在原版无获取途径，只能在此解锁。</p>
+      <div class="check-line" id="f_titlesOwned"></div>
+    </div>
+    <div class="card">
+      <h2>成就（50）</h2>
+      <p class="hint" id="achCount" style="margin-bottom:6px"></p>
+      <div class="btns">
+        <button class="act small" onclick="achAll(true)">解锁全部成就</button>
+        <button class="act small" onclick="achAll(false)">清空成就</button>
+      </div>
+      <p class="hint" style="margin-top:6px">直接标记为「已达成」，不补发奖励（称号请在上方勾选）。</p>
+    </div>
+  </section>
+
+  <!-- ═════════ 装备洞府 ═════════ -->
+  <section id="tab-adv" class="hide">
+    <div class="card">
+      <h2>洞府建筑</h2>
+      <div id="dfBuildings"></div>
+      <hr class="sep" />
+      <label class="row"><span class="lab">主灵脉</span><select id="df_veinMain"></select></label>
+      <div id="dfVeins"></div>
+      <p class="hint">灵脉总点数上限 100（主脉 ≤70、副脉各 ≤30）。当前合计 <b id="veinSum">0</b> 点。</p>
+      <hr class="sep" />
+      <div class="grid3" id="dfFrac"></div>
+      <p class="hint">灵田/矿脉/藏经阁的当轮产出进度（0~100%），改 0 可立即重新收获。</p>
+    </div>
+    <div class="card">
+      <h2>背包装备（<span id="equipCount">0</span> 件）</h2>
+      <div class="btns" style="margin:0 0 8px">
+        <button class="act small" onclick="equipAllLevel(99)">全部强化 99</button>
+        <button class="act small" onclick="equipAllLevel(0)">强化归零</button>
+      </div>
+      <table class="gf" id="equipTable">
+        <thead><tr><th>装备</th><th>品质</th><th>层级</th><th>强化</th><th>穿戴</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="hint" style="margin-top:6px">品质与层级影响装备词条数值；同部位同时只能穿一件。过高强化等极端值游戏可能不认，建议小步试。</p>
+    </div>
+    <div class="card">
+      <h2>法宝（20）<span class="gnum-hint" id="afSlotHint"></span></h2>
+      <table class="gf" id="afTable">
+        <thead><tr><th>法宝</th><th>等级</th><th>佩戴</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="hint" style="margin-top:6px">等级 0 = 未结缘，最高 9。佩戴上限：炼气~筑基 1 件、元婴起 2 件；高级法宝需境界达标（表中已标注），超前佩戴可能不生效。</p>
+    </div>
+    <div class="card">
+      <h2>丹药</h2>
+      <div class="btns" style="margin:0 0 8px">
+        <button class="act small" onclick="pillAll(99)">所有丹药 ×99</button>
+      </div>
+      <div class="grid3" id="pillZone"></div>
+    </div>
+    <div class="card">
+      <h2>杂项</h2>
+      <label class="row"><span class="lab">修行时长（小时）</span><input type="number" id="m_playHours" min="0" step="any" /></label>
+      <div class="grid2">
+        <label class="row"><span class="lab">背景音乐</span><input type="checkbox" id="m_musicOn" /></label>
+        <label class="row"><span class="lab">音效</span><input type="checkbox" id="m_sfxOn" /></label>
+        <label class="row"><span class="lab">音乐音量</span><input type="number" id="m_musicVol" min="0" max="100" /></label>
+        <label class="row"><span class="lab">音效音量</span><input type="number" id="m_sfxVol" min="0" max="100" /></label>
+        <label class="row"><span class="lab">夜间模式</span><select id="m_theme"><option value="auto">跟随系统</option><option value="light">日间</option><option value="dark">夜间</option></select></label>
+        <label class="row"><span class="lab">战报速度</span><select id="m_battleSpeed"><option value="1">×1</option><option value="2">×2</option><option value="4">×4</option></select></label>
+      </div>
+    </div>
+    <div class="card">
+      <h2>历练世界 / 见闻（只读）</h2>
+      <p class="readonly" id="roSummary"></p>
+      <p class="hint">历练世界由种子程序生成、见闻与剧情绑定存档进度，手改极易坏档，故不开放编辑。</p>
+    </div>
+  </section>
+
+  <!-- ═════════ 写回 ═════════ -->
+  <section id="tab-save" class="hide">
+    <div class="card">
+      <h2>写回存档</h2>
+      <label class="row"><span class="lab">活跃时间重置为现在（跳过离线补结算）</span><input type="checkbox" id="f_resetActive" checked /></label>
+      <div class="btns" style="margin-top:12px">
+        <button class="act primary" id="btnDownload">下载修改后的 .save</button>
+        <button class="act" id="btnInjectScript">生成注入脚本</button>
+        <button class="act" id="btnBackup">下载原始备份</button>
+      </div>
+      <hr class="sep" />
+      <p class="hint">
+        <b>下载 .save</b>：得到新的存档文件，导入方式与原档相同（游戏内导入 / 控制台 <code>importSaveText(文件内容)</code>）。<br />
+        <b>注入脚本</b>：已复制到剪贴板并另存 txt —— 在游戏页按 F12 → Console 粘贴运行，自动写入 localStorage 并刷新，<b>无需导入功能</b>，最通用。<br />
+        <b>原始备份</b>：载入时的原档密文，反悔随时可恢复。<br />
+        注意：若游戏页面开着，它每 5 秒会把内存里的旧档刷回 —— 注入脚本前先关掉游戏标签页，或注入后让它自动刷新。
+      </p>
+    </div>
+  </section>
+</div>
+<div id="toast"></div>
+
+<script src="editor/crypto.js"></script>
+<script src="editor/gnum.js"></script>
+<script src="editor/gamedata.js"></script>
+<script src="editor/common.js"></script>
+<script src="editor/form.js"></script>
+<script src="editor/writeback.js"></script>
+</body>
+</html>
