@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丹药与经济</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="menu-toggle" title="打开目录">☰</div>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">云隐修仙录<span> · WIKI</span></div>
+  <hr class="brandline">
+  <div class="group">指南</div>
+  <a class="nav" href="index.html"><span class="no">壹</span>首页概览</a>
+  <a class="nav" href="realms.html"><span class="no">贰</span>境界修炼</a>
+  <a class="nav" href="gongfa.html"><span class="no">叁</span>功法流派</a>
+  <div class="group">成长</div>
+  <a class="nav" href="equipment.html"><span class="no">肆</span>装备锻造</a>
+  <a class="nav" href="items.html"><span class="no">伍</span>丹药经济</a>
+  <a class="nav" href="adventure.html"><span class="no">陆</span>历练战斗</a>
+  <div class="group">经营与终局</div>
+  <a class="nav" href="life.html"><span class="no">柒</span>洞府社交</a>
+  <a class="nav" href="endgame.html"><span class="no">捌</span>轮回终局</a>
+  <div class="group">资料</div>
+  <a class="nav" href="reference.html"><span class="no">玖</span>公式速查</a>
+  <a class="nav" href="tools.html"><span class="no">拾</span>存档工具</a>
+  <div class="sidefoot">
+    数据取自游戏 v1.33.0（2026-09）<br>
+    版权归作者 <a href="https://github.com/setube/yunyin-xiuxian">谦君</a> · CC BY-NC 4.0<br>
+    <a href="https://yunyin.wenzi.games">在线试玩 →</a>
+  </div>
+</aside>
+<main class="content"><div class="doc">
+<header class="pagehead"><h1>丹药与经济</h1><p>32 种丹药 · 九门技艺 · 灵材谱 · 掉落与资源闭环</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#pills">丹药总表</a><a href="#brew">炼制规则</a><a href="#skill">九门技艺</a><a href="#mats">灵材谱</a><a href="#loot">掉落表</a><a href="#econ">资源总览</a>
+</div>
+
+<h2 id="pills"><span class="no">壹</span>丹药总表（32 味）</h2>
+<p class="m" style="font-size:12.5px">丹方消耗为炼制基数；灵石实际消耗按区域层级换算。「所需境界」指炼制该丹的最低境界：0 炼气 ~ 8 渡劫。</p>
+<h3>可炼制（24 味）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>丹药</th><th>品质</th><th>准入</th><th>效果</th><th>丹方（灵草/灵石）</th><th>方阶</th></tr></thead>
+<tbody>
+<tr><td>聚气散</td><td>凡品</td><td>炼气</td><td>修为 +30（固定）</td><td class="num">4 / 8</td><td class="num">1</td></tr>
+<tr><td>聚气丹</td><td>良品</td><td>炼气</td><td>修为 +80（固定）</td><td class="num">8 / 15</td><td class="num">1</td></tr>
+<tr><td>回灵丹</td><td>良品</td><td>炼气</td><td>回复 50% 灵气</td><td class="num">6 / 10</td><td class="num">1</td></tr>
+<tr><td>悟道茶</td><td>良品</td><td>炼气</td><td>「茶香悟道」：战斗修为+30%（1800秒）</td><td class="num">8 / 12</td><td class="num">2</td></tr>
+<tr><td>凝神丹</td><td>良品</td><td>炼气</td><td>「凝神」：突破成功率+8%（600秒）</td><td class="num">10 / 18</td><td class="num">2</td></tr>
+<tr><td>聚灵丹</td><td>精品</td><td>炼气</td><td>「聚灵」：修速+50%（1800秒）</td><td class="num">14 / 25</td><td class="num">2</td></tr>
+<tr><td>战灵丹</td><td>精品</td><td>筑基</td><td>「战意沸腾」：攻+20% 防+10%（900秒）</td><td class="num">16 / 30</td><td class="num">3</td></tr>
+<tr><td>护心丹</td><td>精品</td><td>筑基</td><td>「护心」：受伤−15%（900秒）</td><td class="num">16 / 30</td><td class="num">3</td></tr>
+<tr><td>神行丹</td><td>精品</td><td>筑基</td><td>「神行」：历练速度+30% 身法+10%（900秒）</td><td class="num">18 / 32</td><td class="num">3</td></tr>
+<tr><td>罡气散</td><td>精品</td><td>筑基</td><td>「罡气盾」：开局盾+15% 持盾伤+12%（900秒）</td><td class="num">18 / 35</td><td class="num">3</td></tr>
+<tr><td>破境丹</td><td>灵品</td><td>筑基</td><td>「破境」：突破成功率+15%（300秒）</td><td class="num">30 / 60</td><td class="num">4</td></tr>
+<tr><td>破釜丹</td><td>灵品</td><td>金丹</td><td>「破釜沉舟」：低血伤+30% 低血减+15%（900秒）</td><td class="num">28 / 50</td><td class="num">4</td></tr>
+<tr><td>玄元丹</td><td>灵品</td><td>金丹</td><td>修为 +当前层需求 12%</td><td class="num">24 / 45</td><td class="num">4</td></tr>
+<tr><td>金刚液</td><td>灵品</td><td>金丹</td><td>「金刚护体」：生命+20% 开局盾+10%（900秒）</td><td class="num">26 / 48</td><td class="num">4</td></tr>
+<tr><td>灵乳</td><td>灵品</td><td>金丹</td><td>回复 100% 灵气</td><td class="num">16 / 32</td><td class="num">4</td></tr>
+<tr><td>延寿丹</td><td>灵品</td><td>金丹</td><td>寿元 +30 载</td><td class="num">40 / 80</td><td class="num">5</td></tr>
+<tr><td>天运丹</td><td>灵品</td><td>元婴</td><td>「天运加身」：气运+15% 掉落+10%（1200秒）</td><td class="num">30 / 55</td><td class="num">5</td></tr>
+<tr><td>玄冥护体丹</td><td>灵品</td><td>元婴</td><td>「玄冥护体」：天劫伤害−20%（600秒）</td><td class="num">32 / 60</td><td class="num">5</td></tr>
+<tr><td>悟道丹</td><td>玄品</td><td>元婴</td><td>悟道点 +20</td><td class="num">45 / 90</td><td class="num">6</td></tr>
+<tr><td>大还丹</td><td>玄品</td><td>化神</td><td>修为 +当前层需求 20%</td><td class="num">50 / 100</td><td class="num">6</td></tr>
+<tr><td>千年延寿丹</td><td>玄品</td><td>化神</td><td>寿元 +200 载</td><td class="num">80 / 160</td><td class="num">7</td></tr>
+<tr><td>太虚丹</td><td>地品</td><td>炼虚</td><td>修为 +当前层需求 25%</td><td class="num">90 / 200</td><td class="num">8</td></tr>
+<tr><td>万寿金丹</td><td>地品</td><td>合体</td><td>寿元 +1000 载</td><td class="num">150 / 350</td><td class="num">9</td></tr>
+<tr><td>九转还魂丹</td><td>天品</td><td>大乘</td><td>修为 +当前层需求 30%</td><td class="num">200 / 500</td><td class="num">10</td></tr>
+</tbody></table></div>
+<h3>仅掉落/事件（8 味）</h3>
+<p>妖血丹（修为+45）、雷灵丹（修为+7%层需）、凤髓膏（寿元+100）、龙气丹（修为+10%层需）、蟠桃（寿元+500）、仙尘散（悟道点+18）、造化丹（「道韵加身」：修速+40% 战斗修为+20%）、混沌丹（修为+15%层需）。掉落品药力被刻意压在可炼同族对照的 60% 以内（定价法则 A）。</p>
+<p><b>服用规则</b>：即时类立即生效，增益类挂 Buff（同类刷新时长）；<b>无耐药性</b>系统；服药会使转世命题「不假外物」之类禁忌落空。</p>
+
+<div class="tip">炼丹前先把库存材料「辨识」到位——认知度直接乘进成功率；技艺不足照样能炼，只是成品品相参差，前期多炼便宜丹攒技艺最稳。渡劫丹、回灵丹这类关键时刻才吃的，提前备 3~5 颗就够，别满仓库囤常用丹。</div>
+<h2 id="brew"><span class="no">贰</span>炼制与可炼度</h2>
+<ul>
+  <li><b>失败也开炉</b>：灵石全损，灵草按 <code>0.2 + 0.3×min(1,技艺/100)</code> 比例退回；失败不白费——丹方掌握度 +0.02、技艺照长，失手对灵材印象反而更深；</li>
+  <li><b>多出丹</b>：概率 <code>min(0.8, 掌握度×0.18 + 技艺/500 + 炼丹产出加成)</code> 出两枚；</li>
+  <li><b>唯一硬门槛</b>：丹方掌握度 &gt; 0（「你听说过这张方子」）——高出承受四阶照样能开炉，只是成功率个位数；</li>
+  <li><b>成功率</b> = 0.95 × 掌握度系数(0.22+0.78×掌握度) × 灵材认知系数(0.42+0.58×平均认知) × 技艺系数(0.3+0.7×技艺/100) × 超规格惩罚；</li>
+  <li><b>可承受阶位</b> = 当前大境界 + 1；超 1/2/3 阶惩罚 [0.6, 0.35, 0.18]，其后 ×0.45/阶。</li>
+</ul>
+
+<h2 id="skill"><span class="no">叁</span>九门技艺（四道）</h2>
+<p>技艺不是职业：<b>做什么长什么</b>。识材道·识材；炼丹道·辨药/配伍/凝丹/淬药/养丹；灵火道·控火；炼器道·锻打/铭纹。熟练度曲线 <code>100e/(e+600)</code>（双曲饱和、永不封顶），叙事分档：生疏→初识→入门→小成（40）→娴熟（58）→精通（72）→通玄（85）→大成（94）。</p>
+<p>每张丹方有「君臣佐使」材料与技艺权重：默认君药取不超过方阶的最高阶灵草；特写配方另有讲究——如<b>破境丹</b>成败全在凝丹（权重 0.4）、<b>玄冥护体丹</b>指定「玄阴藤+寒髓晶+九叶还魂草」、<b>九转还魂丹</b>四味灵材缺一不可。</p>
+
+<h2 id="mats"><span class="no">肆</span>灵材谱（16 种）</h2>
+<p class="m" style="font-size:12.5px">认知四层：未识 → 已辨识 → 已知性味 → 运用自如；认知度直接乘进炼丹成功率。背包里灵草/玄铁是通用的，但每种灵材要「认识」了才好用。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>名称</th><th>类</th><th>阶</th><th>五行</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>青芝草</td><td>灵草</td><td class="num">1</td><td>木</td><td>万金油辅药，兜住药性</td></tr>
+<tr><td>赤炎灵芝</td><td>灵草</td><td class="num">2</td><td>火</td><td>大热带微毒，寒方忌用</td></tr>
+<tr><td>玄阴藤</td><td>灵草</td><td class="num">3</td><td>水</td><td>至阴，压伏烈药，自带阴毒</td></tr>
+<tr><td>紫纹兰</td><td>灵草</td><td class="num">4</td><td>木</td><td>提纯药力，淬药关键</td></tr>
+<tr><td>九叶还魂草</td><td>灵草</td><td class="num">5</td><td>光</td><td>凝丹定海神针，炸炉保半炉</td></tr>
+<tr><td>幽冥花</td><td>灵草</td><td class="num">6</td><td>暗</td><td>剧毒，神魂类丹药引子</td></tr>
+<tr><td>雷心竹</td><td>灵草</td><td class="num">7</td><td>雷</td><td>药力霸道，炉温须压窄区间</td></tr>
+<tr><td>太虚灵参</td><td>灵草</td><td class="num">8</td><td>混沌</td><td>八阶以上通用丹基，调和相克药性</td></tr>
+<tr><td>精铁</td><td>矿石</td><td class="num">1</td><td>金</td><td>入门器材，铭纹刻得住</td></tr>
+<tr><td>玄铁</td><td>矿石</td><td class="num">2</td><td>金</td><td>微寒耐高温，锻打分水岭</td></tr>
+<tr><td>寒髓晶</td><td>矿石</td><td class="num">3</td><td>冰</td><td>双用之材：淬火亦压药</td></tr>
+<tr><td>赤铜砂</td><td>矿石</td><td class="num">4</td><td>火</td><td>导灵极佳，铭纹通灵必需</td></tr>
+<tr><td>星纹钢</td><td>矿石</td><td class="num">5</td><td>金</td><td>硬度灵性兼备，顺纹刻铭事半功倍</td></tr>
+<tr><td>息壤</td><td>矿石</td><td class="num">6</td><td>土</td><td>法器自愈，但难改形</td></tr>
+<tr><td>雷纹陨铁</td><td>矿石</td><td class="num">7</td><td>雷</td><td>导灵冠绝群材，只认高温快锻</td></tr>
+<tr><td>太乙玄金</td><td>矿石</td><td class="num">9</td><td>混沌</td><td>仙器胎骨，唯仙焰可软化</td></tr>
+</tbody></table></div>
+
+<h2 id="loot"><span class="no">伍</span>战斗掉落表</h2>
+<p class="m" style="font-size:12.5px">倍率含历练模式、首领（×4）、双倍战利与词条加成。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>项目</th><th>概率 / 公式</th></tr></thead>
+<tbody>
+<tr><td>灵石</td><td>必掉：随机 0.8~1.2 × <code>stoneByTier</code>（12 × 1.9^(tier−1) 基准）× (1+灵石获取)</td></tr>
+<tr><td>战斗修为</td><td>必掉：当前层需求 × 1.2% × (1+经验获取)，首领 ×4</td></tr>
+<tr><td>灵草</td><td>50% 概率掉 1~3 个 ×双倍</td></tr>
+<tr><td>玄铁</td><td>35% 概率掉 1~2 个 ×双倍</td></tr>
+<tr><td>功法残页</td><td>12% 概率掉 1~2 个 ×收益倍率</td></tr>
+<tr><td>装备</td><td>30% × (1+掉落率)，首领 ×2.5 且保底 1 件，单次概率封顶 90%</td></tr>
+<tr><td>丹药</td><td>8% × 收益倍率，首领 ×3</td></tr>
+<tr><td>法宝</td><td>1.5% × 首领6 × (1+气运)</td></tr>
+<tr><td>双倍战利</td><td>「双倍战利」词条判定，全部掉落 ×2</td></tr>
+</tbody></table></div>
+
+<h2 id="econ"><span class="no">陆</span>资源总览</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>资源</th><th>获取</th><th>主要消耗</th></tr></thead>
+<tbody>
+<tr><td><b>灵石</b></td><td>历练战斗、事件、镇压区域、任务/成就、离线</td><td>建筑升级、强化/重铸、炼丹、灵脉投点、突破准备</td></tr>
+<tr><td><b>灵气</b></td><td>自动恢复、灵乳/回灵丹</td><td>突破消耗上限 40%</td></tr>
+<tr><td><b>悟道点</b></td><td>藏经阁 1.5×等级/时、任务、重复法宝、丹药</td><td>功法升级、法宝升阶</td></tr>
+<tr><td><b>灵草/玄铁</b></td><td>灵田（6/2.4 每时每级）、战斗、事件</td><td>炼丹、建筑升级</td></tr>
+<tr><td><b>功法残页</b></td><td>战斗 12%、离线</td><td>参悟功法（12 页/部）、功法升级</td></tr>
+<tr><td><b>器灵尘</b></td><td>分解装备、行囊满折算</td><td>强化、重铸</td></tr>
+<tr><td><b>道源</b>（终局）</td><td>熔炉、远征/试炼/挑战、今日天道</td><td>入场费、凝道果（100/枚）、重写道痕</td></tr>
+<tr><td><b>道果</b>（跨世）</td><td>转世结算、100 道源凝 1 枚</td><td>不可消费——纯永久成长</td></tr>
+<tr><td><b>宿慧</b>（跨世）</td><td>历世阅历 + 认知折算 + 命题</td><td>轮回阶门槛（不可消费）</td></tr>
+</tbody></table></div>
+<div class="note"><b>没有商店/坊市</b>——全游戏没有任何购买系统，经济闭环是「战斗＋建筑产出 → 强化/炼丹/建筑/灵脉消耗」，一切都靠自己挣。</div>
+<footer>
+  <p class="pn"><a href="equipment.html">← 装备与锻造</a><a href="adventure.html">历练与战斗 →</a></p>
+  <p>《云隐修仙录》Wiki —— 数据提取自 <a href="https://github.com/setube/yunyin-xiuxian">github.com/setube/yunyin-xiuxian</a> v1.33.0 源码（2026-09），仅供学习参考；游戏及素材版权归作者 <b>谦君</b> 所有，采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans">CC BY-NC 4.0</a> 许可（未经书面授权禁止商用）。在线试玩：<a href="https://yunyin.wenzi.games">yunyin.wenzi.games</a>。</p>
+</footer>
+</div></main>
+</div>
+<div class="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
