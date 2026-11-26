@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>存档工具</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="menu-toggle" title="打开目录">☰</div>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">云隐修仙录<span> · WIKI</span></div>
+  <hr class="brandline">
+  <div class="group">指南</div>
+  <a class="nav" href="index.html"><span class="no">壹</span>首页概览</a>
+  <a class="nav" href="realms.html"><span class="no">贰</span>境界修炼</a>
+  <a class="nav" href="gongfa.html"><span class="no">叁</span>功法流派</a>
+  <div class="group">成长</div>
+  <a class="nav" href="equipment.html"><span class="no">肆</span>装备锻造</a>
+  <a class="nav" href="items.html"><span class="no">伍</span>丹药经济</a>
+  <a class="nav" href="adventure.html"><span class="no">陆</span>历练战斗</a>
+  <div class="group">经营与终局</div>
+  <a class="nav" href="life.html"><span class="no">柒</span>洞府社交</a>
+  <a class="nav" href="endgame.html"><span class="no">捌</span>轮回终局</a>
+  <div class="group">资料</div>
+  <a class="nav" href="reference.html"><span class="no">玖</span>公式速查</a>
+  <a class="nav" href="tools.html"><span class="no">拾</span>存档工具</a>
+  <div class="sidefoot">
+    数据取自游戏 v1.33.0（2026-09）<br>
+    版权归作者 <a href="https://github.com/setube/yunyin-xiuxian">谦君</a> · CC BY-NC 4.0<br>
+    <a href="https://yunyin.wenzi.games">在线试玩 →</a>
+  </div>
+</aside>
+<main class="content"><div class="doc">
+<header class="pagehead"><h1>存档工具</h1><p>本地存档修改器 · 使用须知 · 备份指引</p></header>
+<div class="tocmini"><b>本页目录</b>
+  <a href="#warn">风险警告</a><a href="#backup">先备份</a><a href="#howto">使用方法</a><a href="#enter">进入修改器</a>
+</div>
+
+<h2 id="warn"><span class="no">壹</span>风险警告 —— 请务必先读</h2>
+<div class="note warn"><b>修改存档会严重破坏游戏体验。</b>《云隐修仙录》的核心乐趣在于从一缕游魂一步步修行、渡劫、轮回的成长过程。直接改出满级功法、神品装备、亿万灵石，等于把这一世的修行一笔勾销——大多数用过修改器的玩家都会后悔。请三思而后行。</div>
+<ul>
+  <li><b>不可恢复</b>：修改器写回的是全新存档，一旦覆盖原档又没有备份，改坏的部分永远找不回来；</li>
+  <li><b>成就与履历失真</b>：修仙录画像、轮回录、征战录都会如实记录你「改」出来的人生，回不去；</li>
+  <li><b>可能触发异常</b>：把数值改到超出正常范围（如修为远超当前境界上限），游戏行为不受保证，极端情况下可能卡死流程；</li>
+  <li><b>失去目标</b>：这游戏没有通关压力，卡住时看看<a href="reference.html#faq">常见疑问</a>或换个构筑思路，往往比改档更有意思。</li>
+</ul>
+<div class="note"><b>相对安全的用途：</b>找回丢了的进度、在换机/重装前多留一份可读的明文备份、研究游戏机制的数据结构。如果你只是想要这些，修改器的「载入」页本身就能满足——不必写回。</div>
+
+<h2 id="backup"><span class="no">贰</span>改档之前，先做备份</h2>
+<ol>
+  <li>打开游戏 → <b>设置 → 存档 → 导出存档</b>，得到 <span class="m">yunyin-xiuxian-日期.save</span> 文件；</li>
+  <li>把这份 .save 复制到安全的地方（网盘、另一个文件夹），<b>再开始任何修改</b>；</li>
+  <li>修改器载入时也会自动留底原始档，可随时在「写回」页下载——但别把希望全押在这层，多一手备份总没错。</li>
+</ol>
+
+<h2 id="howto"><span class="no">叁</span>使用方法</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>步骤</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td class="num">1. 载入</td><td>把游戏导出的 .save 拖进修改器（或点击选择文件），自动解密并列出存档概况</td></tr>
+<tr><td class="num">2. 修改</td><td>按页签改：修行（境界/修为/寿元/轮回）、资源（灵石/材料）、功法、名号成就、装备洞府、丹药法宝</td></tr>
+<tr><td class="num">3. 写回</td><td>切到「写回」页，<b>下载 .save</b> 得到新存档文件，再到游戏里「设置 → 存档 → 导入」即可；也可用页面提供的注入脚本方式直接写入</td></tr>
+</tbody></table></div>
+<p>修改器与游戏使用同一套 AES 密钥，读写完全兼容；<b>全程在本地浏览器运行，不联网、不上传任何数据</b>。</p>
+
+<h2 id="enter"><span class="no">肆</span>进入修改器</h2>
+<p>已读完上面的警告并做好备份？那么——</p>
+<p style="font-size:16px">
+  <a class="enterbtn" href="tools/save-editor.html">我已了解风险，进入存档修改器 →</a>
+</p>
+<p class="m" style="font-size:12.5px">修改器源码按模块拆分在 <span class="m">tools/editor/</span> 目录，请勿整体移动或改名，否则链接失效。</p><footer>
+  <p class="pn"><a href="reference.html">← 公式与机制</a></p>
+  <p>《云隐修仙录》Wiki —— 数据提取自 <a href="https://github.com/setube/yunyin-xiuxian">github.com/setube/yunyin-xiuxian</a> v1.33.0 源码（2026-09），仅供学习参考；游戏及素材版权归作者 <b>谦君</b> 所有，采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans">CC BY-NC 4.0</a> 许可（未经书面授权禁止商用）。在线试玩：<a href="https://yunyin.wenzi.games">yunyin.wenzi.games</a>。</p>
+</footer>
+</div></main>
+</div>
+<div class="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
